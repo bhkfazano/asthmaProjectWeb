@@ -1,0 +1,53 @@
+.main-menu-container {
+	background-color: transparent;
+	display: flex;
+	flex-direction: column;
+}
+
+.side-menu {
+	width: 210px;
+	height: 100%;
+	background-color: #424265c2;
+	position: absolute;
+	margin-left: 55px;
+	transition: width 0.5s;
+}
+
+.off-main {
+	width: 55px;
+}
+
+.off {
+	width: 0;
+}
+
+.side-menu-button {
+	overflow: hidden;
+	height: 40px;
+	background-color: #73bcff4d;
+	align-items: center;
+    display: flex;
+	justify-content: center;
+	color: #ffffff80;
+	letter-spacing: 2px;
+}
+
+.first {
+	margin-bottom: 25px;
+	font-weight: bolder;
+}
+
+.mid {
+	margin-bottom: 13px;
+	cursor: pointer;
+}
+
+.last {
+	margin-top: 101px;
+	cursor: pointer;
+}
+
+.sele {
+	border-right: solid #6ca2af;
+	border-width: 2px;
+}
