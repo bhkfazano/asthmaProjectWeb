@@ -53,6 +53,7 @@ class Login extends Component {
 
 function mapStateToProps(state) {
     return { 
+        view: state.currentView,
         user: state.currentUser,
         pacients: state.pacients
     };
