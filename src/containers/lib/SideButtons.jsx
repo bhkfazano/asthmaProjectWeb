@@ -23,12 +23,12 @@ class SideButtons extends Component {
             <div className="menu-box">
                 <Button classname="menu-button" Icon={MenuIcon} size="large" onclick={() => { this.props.toggle() }} />
                 <div className="small-items">
-                    <Button classname={(select === "#home" ? "sel" : "") + " menu-small-icon"} onclick={(e) => onclick("home")} Icon={HomeIcon} size="large"/>
-                    <Button classname={(select === "#search" ? "sel" : "") + " menu-small-icon"} onclick={(e) => onclick("search")} Icon={SearchIcon} size="large"/>
-                    <Button classname={(select === "#add" ? "sel" : "") + " menu-small-icon"} onclick={(e) => onclick("add")} Icon={PersonAddIcon} size="large"/>
-                    <Button classname={(select === "#statistics" ? "sel" : "") + " menu-small-icon"} onclick={(e) => onclick("statistics")} Icon={EqualizerIcon} size="large"/>
+                    <Button classname={(select === "home" ? "sel" : "") + " menu-small-icon"} onclick={(e) => onclick("home")} Icon={HomeIcon} size="large"/>
+                    <Button classname={(select === "search" ? "sel" : "") + " menu-small-icon"} onclick={(e) => onclick("search")} Icon={SearchIcon} size="large"/>
+                    <Button classname={(select === "add" ? "sel" : "") + " menu-small-icon"} onclick={(e) => onclick("add")} Icon={PersonAddIcon} size="large"/>
+                    <Button classname={(select === "statistics" ? "sel" : "") + " menu-small-icon"} onclick={(e) => onclick("statistics")} Icon={EqualizerIcon} size="large"/>
                 </div>
-                <Button classname={(select === "#settings" ? "sel" : "") + " menu-small-icon bottom-icon"}  onclick={(e) => onclick("settings")} Icon={SettingsIcon} size="large"/>
+                <Button classname={(select === "settings" ? "sel" : "") + " menu-small-icon bottom-icon"}  onclick={(e) => onclick("settings")} Icon={SettingsIcon} size="large"/>
             </div>
         );
     }

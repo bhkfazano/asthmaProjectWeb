@@ -21,6 +21,7 @@ class SideMenu extends Component {
 
     render() {
         const select = this.props.view;
+        console.log(select);
         return (
             <div className={"main-menu-container " + this.props.classname + "-main"}>
                 <SideButtons select={select} onclick={this.controller.handleSideClick} toggle={this.props.toggle} />
@@ -28,19 +29,19 @@ class SideMenu extends Component {
                     <div className="side-menu-button first">
                         Menu
                     </div>
-                    <div className={(select === "#home" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("home")}>
+                    <div className={(select === "home" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("home")}>
                         Início
                     </div>
-                    <div className={(select === "#search" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("search")}>
+                    <div className={(select === "search" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("search")}>
                         Busca
                     </div>
-                    <div className={(select === "#add" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("add")}>
+                    <div className={(select === "add" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("add")}>
                         Adicionar
                     </div>
-                    <div className={(select === "#statistics" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("statistics")}>
+                    <div className={(select === "statistics" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("statistics")}>
                         Estatísticas
                     </div>
-                    <div className={(select === "#settings" ? "sele" : "") + " side-menu-button last"} onClick={(e) => this.controller.handleClick("settings")}>
+                    <div className={(select === "settings" ? "sele" : "") + " side-menu-button last"} onClick={(e) => this.controller.handleClick("settings")}>
                         Configurações
                     </div>
                 </div>
