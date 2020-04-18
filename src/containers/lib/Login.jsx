@@ -5,7 +5,7 @@ import '../styles/Login.css'
 import logo from '../../assets/inalador.png'
 
 import { LoginController } from '../../controllers/index';
-// Falta incluir repository (api) e actions
+import { setUser, setPacients } from '../../actions/index';
 
 class Login extends Component {
 
@@ -51,4 +51,11 @@ class Login extends Component {
     }
 }
 
-export default connect(null, {  })(Login);
+function mapStateToProps(state) {
+    return { 
+        user: state.currentUser,
+        pacients: state.pacients
+    };
+}
+
+export default connect(mapStateToProps, { setUser, setPacients })(Login);

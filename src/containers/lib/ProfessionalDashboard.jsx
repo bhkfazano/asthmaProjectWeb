@@ -20,8 +20,12 @@ class ProfessionalDashboard extends Component {
         this.controller = new DashboardController(this);
     }
 
-    render() {
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps);
+        console.log(this.props);
+    }
 
+    render() {
         return (
             <div className="dashboard">
                 <SideMenu history={this.props.history} classname={this.state.values.showMenu ? "" : "off"} toggle={this.controller.toggleMenu} />

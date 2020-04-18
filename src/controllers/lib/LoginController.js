@@ -23,7 +23,10 @@ export default class LoginController extends MainController {
     if (res && res.status == 200) {
       setUserSession(res.data.token, res.data.prof._id);
       this.props.history.push('/dashboard#home');
-      console.log(res);
+      //console.log(res);
+      await this.props.setUser(res.data.prof);
+      await this.props.setPacients(res.data.prof.associated_pacients);
+      return;
     }
   }
 
