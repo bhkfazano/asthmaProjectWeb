@@ -19,4 +19,8 @@ export default class BaseRepository {
     async delete(endpoint) {
         return await axios.delete(`${ROOT_URL}${endpoint}`);
     }
+
 }
+
+// para funcionar com o token só pegar o token com a função gettoken em utils e passar como header (ultimo parametro)
+
