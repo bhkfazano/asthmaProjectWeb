@@ -14,13 +14,13 @@ export default class LoginController extends MainController {
     const values = { ...this.state.values };
     const token = getToken();
 
-    const config ={
-      headers: { Authorization : `Bearer ${token}` }
-    };
+    // const config ={
+    //   headers: { Authorization : `Bearer ${token}` }
+    // };
   
     const res = await this.controller.professionalRepository.login(values);
 
-    if (res && res.status == 200) {
+    if (res && res.status === 200) {
       delete res.data.prof.password;
       setUserSession(res.data.token, res.data.prof._id);
       //console.log(res);
