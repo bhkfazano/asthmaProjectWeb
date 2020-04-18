@@ -11,7 +11,7 @@ export default class ProfessionalRepository extends BaseRepository {
     }
 
     async login(body) {
-        return await this.post('/loginProfessional', body);
+        return await this.post('/loginProfessional',body);
     }
 
 }
