@@ -16,8 +16,11 @@ export default class DashboardController extends MainController {
     }
 
     async logout() {
-        await removeUserSession();
-        await resetState();
+        removeUserSession();
+        resetState();
+        await this.props.changeView("home");
+        await this.props.removeUser({});
+        console.log(this.props);
         return this.props.history.push('/');
     }
 

@@ -8,12 +8,12 @@ export default class Button extends Component {
 
     render() {
 
-        const { classname, onclick, Icon, size } = this.props;
+        const { classname, onclick, Icon, size, color } = this.props;
 
         return (
 
             <div className={classname} onClick={onclick}>
-                <Icon fontSize={size} />
+                <Icon fontSize={size} color={color} />
             </div>
         );
     }

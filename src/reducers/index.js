@@ -9,7 +9,7 @@ const initialState = {
   pacients: JSON.parse(sessionStorage.getItem('userData')) ? JSON.parse(sessionStorage.getItem('userData')).pacients : [],
   currentView: sessionStorage.getItem('view') || "home"
 };
-console.log(sessionStorage.getItem('view'));
+
 const appReducer = combineReducers({
   currentView: viewReducer,
   currentUser: userReducer,
