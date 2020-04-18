@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import Button from '../../components/IconButton';
-import '../styles/Header.css';
+import Button from './IconButton';
+import './styles/Header.css';
 
-class Header extends Component {
+export default class Header extends Component {
 
     constructor(props) {
         super(props);
@@ -22,7 +21,7 @@ class Header extends Component {
         return (
             <div className="dash-header">
                 <div className="header-name">
-                    {this.props.user.name}
+                    {this.props.username}
                 </div>
                 <div className="logout-button" onClick={() => this.props.handleLogout()}>
                     <div className="logout-button-text">
@@ -35,11 +34,3 @@ class Header extends Component {
     }
 
 }
-
-function mapStateToProps(state) {
-    return {
-        user: state.currentUser
-    };
-}
-
-export default connect(mapStateToProps, {  })(Header);

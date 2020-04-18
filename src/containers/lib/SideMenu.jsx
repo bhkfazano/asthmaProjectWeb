@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import '../styles/SideMenu.css'
-import SideButtons from './SideButtons';
+import SideButtons from '../../components/SideButtons';
 import { MenusController } from '../../controllers/index'
 import { changeView } from '../../actions/index';
 

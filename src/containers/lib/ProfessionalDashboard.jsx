@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 
 import '../styles/ProfessionalDashboard.css'
 
-import { SideMenu, Header } from '../index';
+import { SideMenu } from '../index';
 import { changeView, removeUser } from '../../actions/index';
 import { DashboardController } from '../../controllers/index';
+import Header from '../../components/Header';
 
 class ProfessionalDashboard extends Component {
 
@@ -26,7 +27,7 @@ class ProfessionalDashboard extends Component {
             <div className="dashboard">
                 <SideMenu history={this.props.history} classname={this.state.values.showMenu ? "" : "off"} toggle={this.controller.toggleMenu} />
                 <div className="dash-container">
-                    <Header handleLogout={this.controller.logout}/>
+                    <Header username={this.props.user.name} handleLogout={this.controller.logout}/>
                     <div className="content-box">
 
                     </div>
