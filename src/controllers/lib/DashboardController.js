@@ -1,5 +1,5 @@
 import MainController from './MainController.js';
-import { getUser, removeUserSession } from '../../utils/Common';
+import { resetState, removeUserSession } from '../../utils/Common';
 
 export default class DashboardController extends MainController {
 
@@ -15,9 +15,10 @@ export default class DashboardController extends MainController {
         this.setState({ values });
     }
 
-    logout() {
-        removeUserSession();
-        this.props.history.push('/login');
+    async logout() {
+        await removeUserSession();
+        await resetState();
+        return this.props.history.push('/');
     }
 
 

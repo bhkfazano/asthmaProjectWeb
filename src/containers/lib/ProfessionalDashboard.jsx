@@ -21,7 +21,7 @@ class ProfessionalDashboard extends Component {
     }
 
     render() {
-
+        console.log(this.props);
         return (
             <div className="dashboard">
                 <SideMenu history={this.props.history} classname={this.state.values.showMenu ? "" : "off"} toggle={this.controller.toggleMenu} />
@@ -40,7 +40,10 @@ class ProfessionalDashboard extends Component {
 }
 
 function mapStateToProps(state) {
-    return { view: state.currentView };
+    return { view: state.currentView,
+        user: state.currentUser,
+        pacients: state.pacients
+    };
 }
 
 export default connect(mapStateToProps, { changeView })(ProfessionalDashboard);

@@ -9,14 +9,16 @@ export default class MenusController extends MainController {
     }
 
     async handleClick(id) {
-        this.props.history.push("/dashboard#" + id);
-        await this.props.changeView(this.props.history.location.hash);
+        await this.props.changeView(id);
+        sessionStorage.setItem('view', id);
         this.props.toggle();
+        return this.props.history.push("/dashboard#" + this.props.view);
     }
 
     async handleSideClick(id) {
-        this.props.history.push("/dashboard#" + id);
-        await this.props.changeView(this.props.history.location.hash);
+        await this.props.changeView(id);
+        sessionStorage.setItem('view', id);
+        return this.props.history.push("/dashboard#" + this.props.view);
     }
 
 
