@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import '../styles/ProfessionalDashboard.css'
 
-import SideMenu from './SideMenu';
-import { changeView } from '../../actions/index';
+import { SideMenu, Header } from '../index';
+import { changeView, removeUser } from '../../actions/index';
 import { DashboardController } from '../../controllers/index';
 
 class ProfessionalDashboard extends Component {
@@ -26,9 +26,7 @@ class ProfessionalDashboard extends Component {
             <div className="dashboard">
                 <SideMenu history={this.props.history} classname={this.state.values.showMenu ? "" : "off"} toggle={this.controller.toggleMenu} />
                 <div className="dash-container">
-                    <div className="dash-header">
-
-                    </div>
+                    <Header handleLogout={this.controller.logout}/>
                     <div className="content-box">
 
                     </div>
@@ -40,10 +38,10 @@ class ProfessionalDashboard extends Component {
 }
 
 function mapStateToProps(state) {
-    return { view: state.currentView,
-        user: state.currentUser,
-        pacients: state.pacients
+    return { 
+        view: state.currentView,
+        user: state.currentUser
     };
 }
 
-export default connect(mapStateToProps, { changeView })(ProfessionalDashboard);
+export default connect(mapStateToProps, { changeView, removeUser })(ProfessionalDashboard);
