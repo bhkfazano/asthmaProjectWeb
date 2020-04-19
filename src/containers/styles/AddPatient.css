@@ -1,0 +1,89 @@
+.form-container {
+    width: 800px;
+    height: 550px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: #2a2a3c;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.form-title {
+    color: #7482ff;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: medium;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 500;
+    border-bottom: solid;
+    border-width: 2px;
+    border-color: #6a77ea6b;
+    padding-bottom: 5px;
+}
+
+.add-form {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.half-form {
+    width: 45%;
+    height: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.divider {
+    height: 100%;
+    width: 1px;
+    background-color: #73bcff;
+}
+
+.add-button-container {
+    height: 90px;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-patient-button {
+    padding: 10px;
+    background-color: #2a2a3c;
+    color: #1cb78c;
+    border: solid #1cb78ccc;
+    border-radius: 5px;
+    border-width: 0.5px;
+    width: 250px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.add-patient-button:hover {
+    background-color: #1cb78ccc;
+    color: white;
+}
+
+.add-patient-button:active {
+    transform: translateY(2px);
+}
+
+input {
+    background-color: #2a2a3c !important;
+    color: white;
+}
+
+input[type="text"], textarea {
+
+  background-color : #2a2a3c !important; 
+
+}

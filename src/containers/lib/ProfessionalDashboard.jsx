@@ -7,6 +7,7 @@ import { SideMenu } from '../index';
 import { changeView, removeUser } from '../../actions/index';
 import { DashboardController } from '../../controllers/index';
 import Header from '../../components/Header';
+import AddPatient from './AddPatient';
 
 class ProfessionalDashboard extends Component {
 
@@ -22,14 +23,17 @@ class ProfessionalDashboard extends Component {
     }
 
     render() {
+
+        const { view } = this.props;
         console.log(this.props);
+
         return (
             <div className="dashboard">
                 <SideMenu history={this.props.history} classname={this.state.values.showMenu ? "" : "off"} toggle={this.controller.toggleMenu} />
                 <div className="dash-container">
                     <Header username={this.props.user.name} handleLogout={this.controller.logout}/>
                     <div className="content-box">
-
+                        {view == "add" ? <AddPatient handleChange={this.controller.handleChange} /> : ""}
                     </div>
                 </div>
             </div>

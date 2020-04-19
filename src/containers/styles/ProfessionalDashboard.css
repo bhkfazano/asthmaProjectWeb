@@ -22,4 +22,5 @@
     height: calc(100% - 45px);
     background-color: #2a2a3c;
     width: 100%;
+    overflow: auto;
 }
