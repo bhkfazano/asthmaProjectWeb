@@ -50,27 +50,27 @@ class ManageTeam extends Component {
         console.log(this.state)
         const { toggleForm, handleSubmit, handleChange } = this.controller;
 
-        if (this.state.values.add) {
-            return (
-                <AddProfessional 
-                    handleExit={toggleForm} 
-                    handleSubmit={handleSubmit}
-                    handleChange = {handleChange}/>
-            );
-        }
-
         return (
-            <div className="prof-list">
-                <div className="prof-list-title">
-                    Profissionais de saúde cadastrados
+            <div className="container-background">
+                <div className="container-title">profissionais cadastrados</div>
+                <div className="horizontal-prof">
+                    <div className="prof-list">
+                        <div className="prof-list-header">
+                            <label className="header-label">Nome</label>
+                            <label className="header-label">telefone</label>
+                            <label className="header-label">número de pacientes</label>
+                            <Button onclick={toggleForm} classname="add-prof-icon" Icon={AddIcon} size="default" />
+                        </div>
+                        {this.renderProfessionals()}
+                    </div>
+                    <AddProfessional
+                        handleExit={toggleForm}
+                        handleSubmit={handleSubmit}
+                        handleChange={handleChange} 
+                        show={this.state.values.add}   
+                        values={this.state.values} 
+                    />
                 </div>
-                <div className="prof-list-header">
-                    <label className="header-label">Nome</label>
-                    <label className="header-label">telefone</label>
-                    <label className="header-label">número de pacientes</label>
-                    <Button onclick={toggleForm} classname="menu-small-icon" Icon={AddIcon} size="default" />
-                </div>
-                {this.renderProfessionals()}
             </div>
         );
     }

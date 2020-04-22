@@ -1,11 +1,33 @@
+.container-background {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    min-width: 1300px;
+}
+
+.horizontal-prof {
+    display: flex;
+    flex-direction: row;
+    transition: widdth 0.3s;
+
+}
+
+.container-title {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: larger;
+    color: #4a8196d9;
+    margin-left: 5px;
+}
+
 .prof-list {
-    width: 1100px;
+    width: 100%;
+    min-width: 700px;
     height: 550px;
     margin: 0 auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 40px;
+    margin-bottom: 30px;
     background-color: white;
-    padding: 20px;
     border-radius: 5px;
     overflow: auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -15,7 +37,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #377892d9;
+    background-color: #e9f1ffd9;
 }
 
 .header-label {
@@ -25,13 +47,23 @@
     margin-left: 20px;
     margin-bottom: 0 !important;
     height: 35px;
-    color: white;
+    color: #56c7c6;
     text-transform: uppercase;
     font-size: small;
     font-weight: 600;
     letter-spacing: 2px;
 }
 
-.menu-small-icon {
-    border-radius: 0 !important;
+.add-prof-icon {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-prof-icon svg {
+    color: #56c7c6 !important;
 }
