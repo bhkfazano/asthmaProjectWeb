@@ -1,0 +1,108 @@
+.form-container-prof {
+    width: 500px;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: #bdd1ff69;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.form-container-prof .form-title {
+    color: #7482ff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: medium;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 500;
+    border-bottom: solid;
+    border-width: 2px;
+    border-color: #6a77ea6b;
+    padding-bottom: 5px;
+}
+
+.form-container-prof .add-form {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form-container-prof .add-button-container {
+    height: 90px;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container-prof .add-patient-button {
+    padding: 10px;
+    background-color: white;
+    color: #1cb75acc;
+    border: solid #1cb75acc;
+    border-radius: 5px;
+    border-width: 0.5px;
+    width: 250px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.form-container-prof .add-patient-button:hover {
+    background-color: #1cb75acc;
+    color: white;
+}
+
+.form-container-prof .add-patient-button:active {
+    transform: translateY(2px);
+}
+
+.form-container-prof input {
+    background-color: white !important;
+    color: #01202fe6 !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    color: #01202fe6 !important;
+
+}
+
+input:-webkit-autofill {
+    -webkit-text-fill-color: #01202fe6;
+    
+}
+
+.form-container-prof .horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-container-prof .horizontal .input-box {
+    width: 46%;
+}
+
+.form-container-prof .input-box:last-child {
+    margin-left: 40px;
+}
+
+.form-container-prof .exit-button-form {
+    width: 24px;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    cursor: pointer;
+}

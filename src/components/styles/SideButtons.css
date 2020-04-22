@@ -1,8 +1,8 @@
 .menu-box {
     padding-top: 6px;
-    width: 55px;
+    width: 45px;
     height: 100%;
-    background-color: #bdd1ff;
+    background-color: #303d4e;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,19 +37,18 @@
     border-radius: 6px;
 }
 
-.menu-small-icon:hover {
-    background-color: #ffffff38;
+.menu-small-icon svg {
+    color: white !important;
+}
+
+.menu-button svg {
+    color: white !important;
 }
 
 .bottom-icon {
     margin-top: 100px;
 }
 
-.sel {
-    background-color: #a3cac152;
-    border: ridge #ffffff5c;
-}
-
-.sel:hover {
-    background-color: #a3cac152;
+.sel svg {
+    color: #48c7c7 !important;
 }

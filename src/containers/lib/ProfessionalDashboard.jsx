@@ -8,6 +8,7 @@ import { changeView, removeUser } from '../../actions/index';
 import { DashboardController } from '../../controllers/index';
 import Header from '../../components/Header';
 import AddPatient from './AddPatient';
+import ManageTeam from './ManageTeam';
 
 class ProfessionalDashboard extends Component {
 
@@ -25,15 +26,16 @@ class ProfessionalDashboard extends Component {
     render() {
 
         const { view } = this.props;
-        console.log(this.props);
+        const { admin } = this.props.user;
 
         return (
             <div className="dashboard">
                 <SideMenu history={this.props.history} classname={this.state.values.showMenu ? "" : "off"} toggle={this.controller.toggleMenu} />
                 <div className="dash-container">
-                    <Header username={this.props.user.name} handleLogout={this.controller.logout}/>
+                    <Header username={this.props.user.full_name} handleLogout={this.controller.logout}/>
                     <div className="content-box">
-                        {view == "team" ? <AddPatient handleChange={this.controller.handleChange} /> : ""}
+                        {view == "patients" ? <AddPatient handleChange={this.controller.handleChange} /> : ""}
+                        {view == "team" && admin ? <ManageTeam user={this.props.user} /> : ""}
                     </div>
                 </div>
             </div>

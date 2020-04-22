@@ -24,10 +24,7 @@ export default class Header extends Component {
                     {this.props.username}
                 </div>
                 <div className="logout-button" onClick={() => this.props.handleLogout()}>
-                    <div className="logout-button-text">
-                        Logout
-                    </div>
-                    <Button color="disabled" classname="logout-icon" size="large" Icon={ExitToAppIcon} />
+                <Button color="primary" classname="logout-icon" size="default" Icon={ExitToAppIcon} />
                 </div>
             </div>
         );

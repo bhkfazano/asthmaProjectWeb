@@ -3,7 +3,9 @@ export {
     SET_USER,
     REMOVE_USER,
     SET_PATIENTS,
-    REMOVE_PATIENTS
+    REMOVE_PATIENTS,
+    SET_TEAM,
+    REMOVE_TEAM
 } from './lib/types.js';
 
 export {
@@ -19,4 +21,9 @@ export {
     setPatients,
     removePatients
 } from './lib/patientActions.js';
+
+export {
+    setTeam,
+    removeTeam
+} from './lib/teamActions.js';
 

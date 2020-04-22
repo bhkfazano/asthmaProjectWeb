@@ -1,0 +1,37 @@
+.prof-list {
+    width: 1100px;
+    height: 550px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    overflow: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.prof-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #377892d9;
+}
+
+.header-label {
+    display: flex;
+    align-items: center;
+    width: 32%;
+    margin-left: 20px;
+    margin-bottom: 0 !important;
+    height: 35px;
+    color: white;
+    text-transform: uppercase;
+    font-size: small;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.menu-small-icon {
+    border-radius: 0 !important;
+}
