@@ -1,10 +1,10 @@
 .form-container {
-    width: 800px;
+    width: 1100px;
     height: 550px;
     margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 50px;
-    background-color: #2a2a3c;
+    background-color: white;
     padding: 20px;
     border-radius: 5px;
 }
@@ -33,7 +33,7 @@
 }
 
 .half-form {
-    width: 45%;
+    width: 30%;
     height: 100%;
     padding-left: 15px;
     padding-right: 15px;
@@ -56,9 +56,9 @@
 
 .add-patient-button {
     padding: 10px;
-    background-color: #2a2a3c;
-    color: #1cb78c;
-    border: solid #1cb78ccc;
+    background-color: white;
+    color: #1cb75acc;
+    border: solid #1cb75acc;
     border-radius: 5px;
     border-width: 0.5px;
     width: 250px;
@@ -69,7 +69,7 @@
 }
 
 .add-patient-button:hover {
-    background-color: #1cb78ccc;
+    background-color: #1cb75acc;
     color: white;
 }
 
@@ -78,12 +78,20 @@
 }
 
 input {
-    background-color: #2a2a3c !important;
-    color: white;
+    background-color: white !important;
+    color: #01202fe6 !important;
 }
 
-input[type="text"], textarea {
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    color: #01202fe6 !important;
 
-  background-color : #2a2a3c !important; 
+}
 
+input:-webkit-autofill {
+    -webkit-text-fill-color: #01202fe6;
+    
 }

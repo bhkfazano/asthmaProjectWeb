@@ -53,6 +53,15 @@ class AddPatient extends Component {
                         <Input value={ans_4} id="ans_4" type="text" label="questão 04" handleChange={handleChange} />
                         <Input value={ans_5} id="ans_5" type="text" label="questão 05" handleChange={handleChange} />
                     </div>
+                    <div className="divider"/>
+                    <div className="half-form">
+                        <div className="form-title">Barreiras (exercícios)</div>
+                        <Input value={ans_1} id="ans_1" type="text" label="questão 01" handleChange={handleChange} />
+                        <Input value={ans_2} id="ans_2" type="text" label="questão 02" handleChange={handleChange} />
+                        <Input value={ans_3} id="ans_3" type="text" label="questão 03" handleChange={handleChange} />
+                        <Input value={ans_4} id="ans_4" type="text" label="questão 04" handleChange={handleChange} />
+                        <Input value={ans_5} id="ans_5" type="text" label="questão 05" handleChange={handleChange} />
+                    </div>
                 </form>
                 <div className="add-button-container">
                     <div className="add-patient-button">cadastrar paciente</div>

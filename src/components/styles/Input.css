@@ -5,21 +5,21 @@
 
 .input-text {
     border-radius: 5px;
-    border: solid #73bcff91;
-    border-width: 0.5px;
+    border: solid #4881e0cc;
+    border-width: 1px;
     padding-left: 10px;
     padding-right: 10px;
     margin-bottom: 20px;
     height: 28px;
     font-weight: 100;
-    color: #ffffffa8;
+    color: #6bceffde;
     font-size: small;
 }
 
 .input-text:focus {
     outline: none;
     border: solid #6a77eabf;
-    border-width: 0.5px;
+    border-width: 1.5px;
 }
 
 .input-label {
@@ -28,7 +28,8 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: x-small;
-    color: #17b3ff;
+    color: #0086bb;
+    font-weight: bold;
 }
 
 input:-webkit-autofill,
@@ -36,12 +37,12 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active  {
     -webkit-box-shadow: 0 0 0 30px #2a2a3c inset !important;
-    color: #6a77eabf;
+    color: white;
 
 }
 
 input:-webkit-autofill {
-    -webkit-text-fill-color: #ffffffa8 !important;
+    -webkit-text-fill-color: #ffffffa8;
     
 }
 
