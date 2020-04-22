@@ -1,0 +1,20 @@
+.professional-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #bdd1ff;
+    border-bottom: 1px solid #548ba2;
+}
+
+.professional-value {
+    display: flex;
+    align-items: center;
+    width: 32%;
+    margin-left: 20px;
+    margin-bottom: 0 !important;
+    height: 35px;
+    color: #133456;
+    font-size: small;
+    font-weight: 100;
+    letter-spacing: 1px;
+}

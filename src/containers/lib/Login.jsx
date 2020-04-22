@@ -5,7 +5,7 @@ import '../styles/Login.css'
 import logo from '../../assets/inalador.png'
 
 import { LoginController } from '../../controllers/index';
-import { setUser, setPacients } from '../../actions/index';
+import { setUser, setPatients } from '../../actions/index';
 
 class Login extends Component {
 
@@ -55,8 +55,8 @@ function mapStateToProps(state) {
     return { 
         view: state.currentView,
         user: state.currentUser,
-        pacients: state.pacients
+        patients: state.patients
     };
 }
 
-export default connect(mapStateToProps, { setUser, setPacients })(Login);
+export default connect(mapStateToProps, { setUser, setPatients })(Login);

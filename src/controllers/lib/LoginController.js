@@ -25,7 +25,7 @@ export default class LoginController extends MainController {
       setUserSession(res.data.token, res.data.prof._id);
       //console.log(res);
       await this.props.setUser(res.data.prof);
-      await this.props.setPacients(res.data.prof.associated_pacients);
+      await this.props.setPatients(res.data.prof.associated_patients);
 
       storeState(this.props.view, this.props.user);
       

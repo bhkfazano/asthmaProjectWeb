@@ -21,10 +21,11 @@ class SideMenu extends Component {
 
     render() {
         const select = this.props.view;
-        console.log(select);
+        const admin = this.props.user.admin;
+
         return (
             <div className={"main-menu-container " + this.props.classname + "-main"}>
-                <SideButtons select={select} onclick={this.controller.handleSideClick} toggle={this.props.toggle} />
+                <SideButtons admin={admin} select={select} onclick={this.controller.handleSideClick} toggle={this.props.toggle} />
                 <div className={"side-menu " + this.props.classname}>
                     <div className="side-menu-button first">
                         Menu
@@ -32,12 +33,12 @@ class SideMenu extends Component {
                     <div className={(select === "home" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("home")}>
                         Início
                     </div>
-                    <div className={(select === "search" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("search")}>
-                        Busca
+                    <div className={(select === "patients" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("patients")}>
+                        Pacientes
                     </div>
-                    <div className={(select === "add" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("add")}>
-                        Adicionar
-                    </div>
+                    {admin ? <div className={(select === "team" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("team")}>
+                        Equipe
+                    </div> : ""}
                     <div className={(select === "statistics" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("statistics")}>
                         Estatísticas
                     </div>
@@ -51,7 +52,7 @@ class SideMenu extends Component {
 }
 
 function mapStateToProps(state) {
-    return { view: state.currentView };
+    return { view: state.currentView, user: state.currentUser };
 }
 
 export default connect(mapStateToProps, { changeView })(SideMenu);

@@ -6,7 +6,7 @@ export default class MainController {
 
   handleChange(e) {
     const item = e.target;
-	const values = { ...this.state.values };
+	  const values = { ...this.state.values };
     values[item.id] = item.value;
     this.setState( {values : values} );
 	}

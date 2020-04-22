@@ -2,8 +2,10 @@ export {
     CHANGE_VIEW,
     SET_USER,
     REMOVE_USER,
-    SET_PACIENTS,
-    REMOVE_PACIENTS
+    SET_PATIENTS,
+    REMOVE_PATIENTS,
+    SET_TEAM,
+    REMOVE_TEAM
 } from './lib/types.js';
 
 export {
@@ -16,7 +18,12 @@ export {
 } from './lib/userActions.js';
 
 export {
-    setPacients,
-    removePacients
-} from './lib/pacientActions.js';
+    setPatients,
+    removePatients
+} from './lib/patientActions.js';
+
+export {
+    setTeam,
+    removeTeam
+} from './lib/teamActions.js';
 

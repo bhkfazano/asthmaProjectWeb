@@ -5,11 +5,11 @@
 }
 
 .side-menu {
-	width: 210px;
+	width: 170px;
 	height: 100%;
-	background-color: #424265c2;
+	background-color: #303c4e;
 	position: absolute;
-	margin-left: 55px;
+	margin-left: 45px;
 	transition: width 0.5s;
 }
 
@@ -24,16 +24,17 @@
 .side-menu-button {
 	overflow: hidden;
 	height: 40px;
-	background-color: #73bcff4d;
+	background-color: #303c4e;
 	align-items: center;
     display: flex;
-	justify-content: center;
-	color: #ffffff80;
+	justify-content: initial;
+	color: #ffffffde;
 	letter-spacing: 2px;
+	margin-left: 15px;
 }
 
 .first {
-	margin-bottom: 25px;
+	margin-bottom: 18px;
 	font-weight: bolder;
 }
 
@@ -43,11 +44,11 @@
 }
 
 .last {
-	margin-top: 101px;
+	margin-top: 102px;
 	cursor: pointer;
 }
 
 .sele {
-	border-right: solid #6ca2af;
+	color: #48c7c7;
 	border-width: 2px;
 }
