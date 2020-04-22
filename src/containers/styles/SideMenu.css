@@ -7,7 +7,7 @@
 .side-menu {
 	width: 210px;
 	height: 100%;
-	background-color: #424265eb;
+	background-color: #050510db;
 	position: absolute;
 	margin-left: 55px;
 	transition: width 0.5s;
@@ -24,11 +24,11 @@
 .side-menu-button {
 	overflow: hidden;
 	height: 40px;
-	background-color: #4680b5;
+	background-color: #3ea0c7;
 	align-items: center;
     display: flex;
 	justify-content: center;
-	color: #ffffff80;
+	color: #ffffffde;
 	letter-spacing: 2px;
 }
 

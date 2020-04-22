@@ -2,18 +2,18 @@ import { combineReducers } from 'redux';
 
 import viewReducer from './lib/viewReducer'
 import userReducer from './lib/userReducer'
-import pacientReducer from './lib/pacientReducer'
+import patientReducer from './lib/patientReducer'
 
 const initialState = {
   currentUser: JSON.parse(sessionStorage.getItem('userData')) || {},
-  pacients: JSON.parse(sessionStorage.getItem('userData')) ? JSON.parse(sessionStorage.getItem('userData')).pacients : [],
+  patients: JSON.parse(sessionStorage.getItem('userData')) ? JSON.parse(sessionStorage.getItem('userData')).patients : [],
   currentView: sessionStorage.getItem('view') || "home"
 };
 
 const appReducer = combineReducers({
   currentView: viewReducer,
   currentUser: userReducer,
-  pacients: pacientReducer
+  patients: patientReducer
 })
 
 const rootReducer = (state = initialState, action) => {

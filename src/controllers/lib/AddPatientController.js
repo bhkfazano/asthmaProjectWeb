@@ -6,5 +6,7 @@ export default class AddPatientController extends MainController {
         super(context);
     }
 
+    
+
 
 }

@@ -64,7 +64,7 @@ class AddPatient extends Component {
                     </div>
                 </form>
                 <div className="add-button-container">
-                    <div className="add-patient-button">cadastrar paciente</div>
+                    <div className="add-patient-button">cadastrar patiente</div>
                 </div>
             </div>
         );

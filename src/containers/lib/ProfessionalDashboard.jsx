@@ -33,7 +33,7 @@ class ProfessionalDashboard extends Component {
                 <div className="dash-container">
                     <Header username={this.props.user.name} handleLogout={this.controller.logout}/>
                     <div className="content-box">
-                        {view == "add" ? <AddPatient handleChange={this.controller.handleChange} /> : ""}
+                        {view == "team" ? <AddPatient handleChange={this.controller.handleChange} /> : ""}
                     </div>
                 </div>
             </div>
