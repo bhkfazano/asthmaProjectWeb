@@ -12,7 +12,35 @@
 
 }
 
-.container-title {
+.container-prof-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.total-prof {
+    height: 60px;
+    width: 250px;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: larger;
+    color: green;
+    padding-left: 30px;
+}
+
+.total-prof label {
+    margin-bottom: 0 !important;
+}
+
+.header-prof-title {
     text-transform: uppercase;
     letter-spacing: 4px;
     font-size: larger;
@@ -23,10 +51,8 @@
 .prof-list {
     width: 100%;
     min-width: 700px;
-    height: 550px;
+    height: 500px;
     margin: 0 auto;
-    margin-top: 40px;
-    margin-bottom: 30px;
     background-color: white;
     border-radius: 5px;
     overflow: auto;

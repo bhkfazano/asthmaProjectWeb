@@ -8,6 +8,7 @@ import ShowProfessional from '../../components/ShowProfessional';
 import Button from '../../components/IconButton';
 import AddProfessional from '../../components/AddProfessional';
 
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import AddIcon from '@material-ui/icons/Add';
 import '../styles/ManageTeam.css';
 
@@ -52,7 +53,13 @@ class ManageTeam extends Component {
 
         return (
             <div className="container-background">
-                <div className="container-title">profissionais cadastrados</div>
+                <div className="container-prof-header">
+                    <label className="header-prof-title">Profissionais cadastrados</label>
+                    <label className="total-prof">
+                        <label>total:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.props.team.length}</label>
+                        <Button Icon={EmojiPeopleIcon} size="large"/>
+                    </label>
+                </div>
                 <div className="horizontal-prof">
                     <div className="prof-list">
                         <div className="prof-list-header">

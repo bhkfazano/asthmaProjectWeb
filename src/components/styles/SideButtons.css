@@ -52,3 +52,7 @@
 .sel svg {
     color: #48c7c7 !important;
 }
+
+.hidden {
+    cursor: inherit !important;
+}
