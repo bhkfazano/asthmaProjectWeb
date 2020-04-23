@@ -33,8 +33,9 @@ export default class ManageTeamController extends MainController {
 
     async handleSubmit() {
 
+        console.log(this.state)
+
         const { cpf, full_name, personal_phone, email, birth_date } = {...this.state.values};
-    
 
         const data = await this.controller.professionalRepository.signup({
             cpf,
