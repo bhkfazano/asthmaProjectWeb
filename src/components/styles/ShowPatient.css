@@ -1,0 +1,24 @@
+.professional-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    margin-bottom: 5px;
+}
+
+.professional-value {
+    display: flex;
+    align-items: center;
+    width: 32%;
+    margin-left: 20px;
+    margin-bottom: 0 !important;
+    height: 35px;
+    color: #133456;
+    font-size: small;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+
+.professional-box:hover {
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+}

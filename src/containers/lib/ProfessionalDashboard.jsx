@@ -9,6 +9,7 @@ import { DashboardController } from '../../controllers/index';
 import Header from '../../components/Header';
 import AddPatient from './AddPatient';
 import ManageTeam from './ManageTeam';
+import ManagePatient from './ManagePatient'
 
 class ProfessionalDashboard extends Component {
 
@@ -34,7 +35,7 @@ class ProfessionalDashboard extends Component {
                 <div className="dash-container">
                     <Header username={this.props.user.full_name} handleLogout={this.controller.logout}/>
                     <div className="content-box">
-                        {view == "patients" ? <AddPatient handleChange={this.controller.handleChange} /> : ""}
+                        {view == "patients" ? <ManagePatient handleChange={this.controller.handleChange} /> : ""}
                         {view == "team" && admin ? <ManageTeam user={this.props.user} /> : ""}
                     </div>
                 </div>
