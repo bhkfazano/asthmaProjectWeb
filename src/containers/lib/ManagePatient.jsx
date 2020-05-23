@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
-import Input from '../../components/Input';
 import { ManagePatientController } from '../../controllers/index';
 import '../styles/ManagePatient.css';
 import ShowPatient from '../../components/ShowPatient.jsx'
 import Button from '../../components/IconButton';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import AddIcon from '@material-ui/icons/Add';
-import AddPatient from './AddPatient.jsx'
-
 
 class ManagePatient extends Component {
 
@@ -39,7 +36,7 @@ class ManagePatient extends Component {
     }
 
     renderPatients() {
-        return _.map(this.props.user.patient, patient => {
+        return _.map(this.props.patients, patient => {
             return (
                 <ShowPatient 
                     key={patient._id}
@@ -51,7 +48,7 @@ class ManagePatient extends Component {
     }
 
     render() {
-        console.log(this.state)
+        console.log(this.props)
         const { toggleForm, handleSubmit, handleChange } = this.controller;
 
         return (
@@ -83,7 +80,7 @@ class ManagePatient extends Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.currentUser
+        patients: state.patients
     };
 }
 

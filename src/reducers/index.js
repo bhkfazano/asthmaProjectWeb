@@ -7,7 +7,7 @@ import teamReducer from './lib/teamReducer'
 
 const initialState = {
   currentUser: JSON.parse(sessionStorage.getItem('userData')) || {},
-  patients: JSON.parse(sessionStorage.getItem('userData')) ? JSON.parse(sessionStorage.getItem('userData')).patients : [],
+  patients: JSON.parse(sessionStorage.getItem('patients')) || [],
   currentView: sessionStorage.getItem('view') || "home",
   team: []
 };

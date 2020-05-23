@@ -18,9 +18,10 @@ export const setUserSession = (token, user) => {
     sessionStorage.setItem('user', JSON.stringify(user));
 }
 
-export const storeState = (view, user) => {
+export const storeState = (view, user, patients) => {
     sessionStorage.setItem('view', view);
     sessionStorage.setItem('userData', JSON.stringify(user));
+    sessionStorage.setItem('patients', JSON.stringify(patients));
 }
 
 export const retrieveState = () => {
@@ -32,6 +33,7 @@ export const retrieveState = () => {
 export const resetState = () => {
     sessionStorage.removeItem('view');
     sessionStorage.removeItem('userData');
+    sessionStorage.removeItem('patients');
 }
 
 

@@ -25,7 +25,6 @@ class ProfessionalDashboard extends Component {
     }
 
     render() {
-
         const { view } = this.props;
         const { admin } = this.props.user;
 
