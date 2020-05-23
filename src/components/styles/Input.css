@@ -5,7 +5,7 @@
 
 .input-text {
     border-radius: 5px;
-    border: solid #4881e0cc;
+    border: solid #303d4e30;
     border-width: 1px;
     padding-left: 10px;
     padding-right: 10px;
@@ -18,7 +18,7 @@
 
 .input-text:focus {
     outline: none;
-    border: solid #6a77eabf;
+    border: solid #56c7c6ab;
     border-width: 1.5px;
 }
 
@@ -28,8 +28,9 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: x-small;
-    color: #0086bb;
+    color: #56c7c6;
     font-weight: bold;
+    max-height: 15px;
 }
 
 input:-webkit-autofill,

@@ -14,7 +14,7 @@
 }
 
 .off-main {
-	width: 55px;
+	width: 45px;
 }
 
 .off {
@@ -51,4 +51,9 @@
 .sele {
 	color: #48c7c7;
 	border-width: 2px;
+}
+
+
+.hidden {
+    cursor: inherit !important;
 }

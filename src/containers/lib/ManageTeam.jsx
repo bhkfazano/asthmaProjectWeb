@@ -8,6 +8,7 @@ import ShowProfessional from '../../components/ShowProfessional';
 import Button from '../../components/IconButton';
 import AddProfessional from '../../components/AddProfessional';
 
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import AddIcon from '@material-ui/icons/Add';
 import '../styles/ManageTeam.css';
 
@@ -50,27 +51,33 @@ class ManageTeam extends Component {
         console.log(this.state)
         const { toggleForm, handleSubmit, handleChange } = this.controller;
 
-        if (this.state.values.add) {
-            return (
-                <AddProfessional 
-                    handleExit={toggleForm} 
-                    handleSubmit={handleSubmit}
-                    handleChange = {handleChange}/>
-            );
-        }
-
         return (
-            <div className="prof-list">
-                <div className="prof-list-title">
-                    Profissionais de saúde cadastrados
+            <div className="container-background">
+                <div className="container-prof-header">
+                    <label className="header-prof-title">Profissionais cadastrados</label>
+                    <label className="total-prof">
+                        <label>total:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.props.team.length}</label>
+                        <Button Icon={EmojiPeopleIcon} size="large"/>
+                    </label>
                 </div>
-                <div className="prof-list-header">
-                    <label className="header-label">Nome</label>
-                    <label className="header-label">telefone</label>
-                    <label className="header-label">número de pacientes</label>
-                    <Button onclick={toggleForm} classname="menu-small-icon" Icon={AddIcon} size="default" />
+                <div className="horizontal-prof">
+                    <div className="prof-list">
+                        <div className="prof-list-header">
+                            <label className="header-label">Nome</label>
+                            <label className="header-label">telefone</label>
+                            <label className="header-label">número de pacientes</label>
+                            <Button onclick={toggleForm} classname="add-prof-icon" Icon={AddIcon} size="default" />
+                        </div>
+                        {this.renderProfessionals()}
+                    </div>
+                    <AddProfessional
+                        handleExit={toggleForm}
+                        handleSubmit={handleSubmit}
+                        handleChange={handleChange} 
+                        show={this.state.values.add}   
+                        values={this.state.values} 
+                    />
                 </div>
-                {this.renderProfessionals()}
             </div>
         );
     }
