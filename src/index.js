@@ -9,7 +9,7 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reducers from './reducers';
 
-import { Login, ProfessionalDashboard } from './containers'
+import { Login, ProfessionalDashboard, FitbitSync } from './containers'
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -17,6 +17,7 @@ ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
       <Switch>
+        <Route path="/fitbitsync" component={FitbitSync} />
         <Route path="/dashboard" component={ProfessionalDashboard} />
         <Route path="/" component={Login} />
       </Switch>
