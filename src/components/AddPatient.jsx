@@ -44,18 +44,18 @@ class AddPatient extends Component {
                 <form className="add-form" noValidate autoComplete="off">
                     <div className="half-form">
                         <div className="form-title">Informações de Cadastro</div>
-                        <Input value={cpf} id="cpf" type="text" label="cpf" onChange={handleChange} />
-                        <Input value={name} id="name" type="text" label="Nome completo" onChange={handleChange} />
-                        <Input value={email} id="email" type="email" label="e-mail" onChange={handleChange} />
-                        <Input value={personal_phone} id="personal_phone" type="text" label="telefone" onChange={handleChange} />
-                        <Input value={birth_date} id="birth_date" type="date" label="data de nascimento" onChange={handleChange} />
+                        <Input value={cpf} id="cpf" type="text" label="cpf" handleChange={handleChange} />
+                        <Input value={name} id="name" type="text" label="Nome completo" handleChange={handleChange} />
+                        <Input value={email} id="email" type="email" label="e-mail" handleChange={handleChange} />
+                        <Input value={personal_phone} id="personal_phone" type="text" label="telefone" handleChange={handleChange} />
+                        <Input value={birth_date} id="birth_date" type="date" label="data de nascimento" handleChange={handleChange} />
                     
                         <br></br><div className="form-title">Barreiras (exercícios)</div>
-                        <Input value={exerc_1} id="exerc_1" type="text" label="Meta: passos / dia" onChange={handleChange} />
-                        <Input value={exerc_2} id="exerc_2" type="text" label="Meta: km / semana" onChange={handleChange} />
-                        <Input value={exerc_3} id="exerc_3" type="text" label="Recomendação de outras atividades:" onChange={handleChange} />
-                        <Input value={exerc_4} id="exerc_4" type="text" label="Exercícios respiratórios:" onChange={handleChange} />
-                        <Input value={exerc_5} id="exerc_5" type="text" label="Observações:" onChange={handleChange} />
+                        <Input value={exerc_1} id="exerc_1" type="text" label="Meta: passos / dia" handleChange={handleChange} />
+                        <Input value={exerc_2} id="exerc_2" type="text" label="Meta: km / semana" handleChange={handleChange} />
+                        <Input value={exerc_3} id="exerc_3" type="text" label="Recomendação de outras atividades:" handleChange={handleChange} />
+                        <Input value={exerc_4} id="exerc_4" type="text" label="Exercícios respiratórios:" handleChange={handleChange} />
+                        <Input value={exerc_5} id="exerc_5" type="text" label="Observações:" handleChange={handleChange} />
                     </div>
 
                     <div className="divider"/>
