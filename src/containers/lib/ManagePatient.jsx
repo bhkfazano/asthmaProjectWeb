@@ -54,8 +54,9 @@ class ManagePatient extends Component {
         return (
             <div className="container-background">
                 <div className="container-pat-header">
-                    <label className="header-pat-title">Paciente</label>
+                    <label className="header-pat-title">Pacientes</label>
                     <label className="total-prof">
+                    <label>total:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{this.props.patients.length}</label>
                         <Button Icon={EmojiPeopleIcon} size="large"/>
                     </label>
                 </div>

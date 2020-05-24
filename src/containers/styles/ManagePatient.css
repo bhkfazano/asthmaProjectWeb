@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     padding: 30px;
-    min-width: 1300px;
+    min-width: 1000px;
 }
 
 .horizontal-pat {
@@ -50,7 +50,7 @@
 
 .pat-list {
     width: 100%;
-    min-width: 700px;
+    min-width: 600px;
     height: 500px;
     margin: 0 auto;
     background-color: white;
