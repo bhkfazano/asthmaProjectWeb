@@ -8,6 +8,6 @@ export {
     Login,
     ProfessionalDashboard,
     SideMenu,
-    ManageTeam
+    ManageTeam,
     FitbitSync
 };
