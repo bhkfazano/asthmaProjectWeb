@@ -102,3 +102,9 @@ input:-webkit-autofill {
 .exit-button-form svg {
     color: #56c7c6 !important;
 }
+
+.error-message{
+    font-size: 10px;
+    color: red;
+    text-align: center;
+}
