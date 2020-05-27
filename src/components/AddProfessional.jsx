@@ -29,9 +29,9 @@ export default class AddProfessional extends Component {
                 <form className="add-form" noValidate autoComplete="off">
                     <Input value={cpf} id="cpf" type="text" label="cpf" handleChange={handleChange} />
                     <Input value={full_name} id="full_name" type="text" label="Nome completo" handleChange={handleChange} />
-                    <Input value={email} id="email" type="text" label="email" handleChange={handleChange} />
+                    <Input value={email} id="email" type="email" label="e-mail" handleChange={handleChange} />
                     <Input value={personal_phone} id="personal_phone" type="text" label="telefone" handleChange={handleChange} />
-                    <Input value={birth_date} id="birth_date" type="text" label="data de nascimento" handleChange={handleChange} />
+                    <Input value={birth_date} id="birth_date" type="date" label="data de nascimento" handleChange={handleChange} />
                 </form>
                 <div className="add-button-container">
                     <div className="add-patient-button" onClick={(e) => handleSubmit()} >cadastrar</div>

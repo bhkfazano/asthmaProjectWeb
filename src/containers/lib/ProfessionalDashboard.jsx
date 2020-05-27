@@ -7,7 +7,7 @@ import { SideMenu } from '../index';
 import { changeView, removeUser } from '../../actions/index';
 import { DashboardController } from '../../controllers/index';
 import Header from '../../components/Header';
-import AddPatient from './AddPatient';
+import AddPatient from '../../components/AddPatient';
 import ManageTeam from './ManageTeam';
 import ManagePatient from './ManagePatient'
 
