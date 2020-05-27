@@ -10,4 +10,8 @@ export default class PatientRepository extends BaseRepository {
         return await this.post('/registerPatient', body);
     }
 
+    async fetchByProfessional(body) {
+        return await this.post('/fetchByProfessional', body);
+    }
+
 }

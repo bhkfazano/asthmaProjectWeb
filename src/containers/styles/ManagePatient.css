@@ -5,21 +5,21 @@
     min-width: 1000px;
 }
 
-.horizontal-prof {
+.horizontal-pat {
     display: flex;
     flex-direction: row;
     transition: widdth 0.3s;
 
 }
 
-.container-prof-header {
+.container-pat-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
-.total-prof {
+.total-pat {
     height: 60px;
     width: 250px;
     box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 20px 0 rgba(0, 0, 0, 0.1);
@@ -36,11 +36,11 @@
     padding-left: 30px;
 }
 
-.total-prof label {
+.total-pat label {
     margin-bottom: 0 !important;
 }
 
-.header-prof-title {
+.header-pat-title {
     text-transform: uppercase;
     letter-spacing: 4px;
     font-size: larger;
@@ -48,9 +48,9 @@
     margin-left: 5px;
 }
 
-.prof-list {
+.pat-list {
     width: 100%;
-    min-width: 700px;
+    min-width: 600px;
     height: 500px;
     margin: 0 auto;
     background-color: white;
@@ -59,7 +59,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.prof-list-header {
+.pat-list-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -80,7 +80,7 @@
     letter-spacing: 2px;
 }
 
-.add-prof-icon {
+.add-pat-icon {
     cursor: pointer;
     width: 40px;
     height: 40px;
@@ -90,6 +90,6 @@
     flex-direction: column;
 }
 
-.add-prof-icon svg {
+.add-pat-icon svg {
     color: #56c7c6 !important;
 }
