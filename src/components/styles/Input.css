@@ -22,6 +22,10 @@
     border-width: 1.5px;
 }
 
+.error {
+    border: 1px solid red;
+}
+
 .input-label {
     margin-bottom: 4px;
     margin-left: 10px;

@@ -22,63 +22,67 @@ export default class ManageTeamController extends MainController {
 
     async toggleForm() {
         var values = { ...this.state.values };
+        var errors = { ...this.state.errors };
+
         values.add = !values.add;
         values.cpf = "";
         values.full_name = "";
         values.personal_phone = "";
         values.birth_date = "";
         values.email = "";
-        return this.setState({ values });
+        errors.e_birth_date = false;
+        errors.e_cpf = false;
+        errors.e_email = false;
+        errors.e_full_name = false;
+        errors.e_personal_phone = false;
+
+        return this.setState({ values, errors });
     }
 
     async handleSubmit() {
 
-        const {cpf, full_name, personal_phone, email, birth_date } = {...this.state.values};
+        const { cpf, full_name, personal_phone, email, birth_date } = {...this.state.values};
+
         const values = {...this.state.values};
-        // date e email_test são usados para verificar se a data e e-mail recebidos estão no formato correto. Email_test porém, não pode dizer se algum e-mail enviado realmente existe
-        // ele diz somente se o string recebido tem o formato adequado para um e-mail.
-        const date = new Date(birth_date);
+        const errors = {...this.state.errors};
+
+        errors.e_birth_date = false;
+        errors.e_cpf = false;
+        errors.e_email = false;
+        errors.e_full_name = false;
+        errors.e_personal_phone = false;
+
         const email_test = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-        values.cpf_invalid = false;
-        values.cpf_error = false;
-        values.number_error = false;
-        values.birth_date_error = false;
-        values.name_error = false;
-        values.e_mail_error = false;
-        if(cpf === "" || cpf.length != 11 || !(/^\d+$/.test(cpf))){
-            values.cpf_error = true;
+
+        if (cpf === "" || cpf.length != 11 || !(/^\d+$/.test(cpf))) {
+            errors.e_cpf = true;
         }
-        if(personal_phone.length != 11 || !(/^\d+$/.test(personal_phone))){
-            values.number_error = true;
+        if (personal_phone.length != 11 || !(/^\d+$/.test(personal_phone))) {
+            errors.e_personal_phone = true;
         }
-        // Verifica se a data de nascimento é valida, se utilizando do formato inglês para datas exemplo:
-        // 16/02/1995 é valido no Brasil, mas no formato inglês, seria aceito somente 02/16/1995
-        // São aceitos anos de nascimento entre 1920 e 2001.
-        if(isNaN(date.getTime()) || birth_date.length != 10 || date.getFullYear() < 1920 || date.getFullYear() > 2001){
-            values.birth_date_error = true;
+        if (full_name === "") {
+            console.log(full_name)
+            errors.e_full_name = true;
         }
-        if(full_name === "" || !/^[a-zA-Z]+$/.test(full_name)){
-            values.name_error = true;
+        if (email === "" || !email_test.test(String(email).toLowerCase())) {
+            errors.e_email = true;
         }
-        if(email === "" || !email_test.test(String(email).toLowerCase())){
-            values.e_mail_error = true;
+        if (birth_date === "") {
+            errors.e_birth_date = true;
         }
-        if(!values.cpf_invalid && !values.cpf_error && !values.number_error && !values.e_mail_error && !values.name_error && !values.birth_date_error){
-            try{
-                const data = await this.controller.professionalRepository.signup({
-                    cpf,
-                    full_name,
-                    personal_phone,
-                    email,
-                    birth_date,
-                    admin: false
-                    });
-                }
-            catch(error){
-                values.cpf_invalid = true;
-                this.setState({values : values});
-                }
-            }
-        this.setState({values : values});
+        
+        if (!errors.e_email && !errors.e_full_name && !errors.e_personal_phone && !errors.e_cpf && !errors.e_birth_date) {
+            
+            const data = await this.controller.professionalRepository.signup({
+                cpf,
+                full_name,
+                personal_phone,
+                email,
+                birth_date,
+                admin: false
+            });
+            return console.log(data);
         }
+        return this.setState({ errors });
     }
+}

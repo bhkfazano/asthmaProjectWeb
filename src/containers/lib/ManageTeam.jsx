@@ -24,6 +24,13 @@ class ManageTeam extends Component {
                 email: "",
                 personal_phone: "",
                 birth_date: "",
+            },
+            errors: {
+                e_cpf: "",
+                e_full_name: "",
+                e_email: "",
+                e_personal_phone: "",
+                e_birth_date: "",
             }
         };
 
@@ -49,7 +56,7 @@ class ManageTeam extends Component {
 
     render() {
         const { toggleForm, handleSubmit, handleChange } = this.controller;
-
+        
         return (
             <div className="container-background">
                 <div className="container-prof-header">
@@ -75,6 +82,7 @@ class ManageTeam extends Component {
                         handleChange={handleChange} 
                         show={this.state.values.add}   
                         values={this.state.values} 
+                        errors={this.state.errors} 
                     />
                 </div>
             </div>

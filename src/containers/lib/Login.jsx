@@ -45,7 +45,7 @@ class Login extends Component {
                     <div className="bbtt" >
                         <button type="button" className="login-button" onClick={submitAction} >Entrar</button>
                     </div>
-                    <div className= "error-message">
+                    <div className= "login-error-message">
                         {error ? error  : ""}
                     </div>
                 </form>

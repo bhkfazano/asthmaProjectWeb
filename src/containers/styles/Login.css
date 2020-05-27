@@ -16,7 +16,6 @@
 .bbtt {
     justify-content: center;
     display: flex;
-    margin-top: ;
 }
 
 .login-button {
@@ -59,7 +58,7 @@
     width: 100%;
 }
 
-.error-message{
+.login-error-message{
     height: 18px;
     padding-top: 10px;
     font-size: 16px;
