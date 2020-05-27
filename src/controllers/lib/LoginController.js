@@ -20,6 +20,7 @@ export default class LoginController extends MainController {
     // };
     try{
     const res = await this.controller.professionalRepository.login(values);
+    const patients = await this.controller.patientRepository.fetchByProfessional({ associated_patients });
 
     if (res && res.status === 200) {
       values.error = false;
