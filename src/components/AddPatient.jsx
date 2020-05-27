@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Input from './Input';
-import { AddPatientController } from '../controllers/index';
 import ClearIcon from '@material-ui/icons/Clear';
 import './styles/AddPatient.css';
 import Button from './IconButton';

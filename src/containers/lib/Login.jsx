@@ -15,8 +15,7 @@ class Login extends Component {
             values: {
                 cpf: "",
                 password: "",
-                error: false,
-                passwordError: false
+                error: false
             }
         };
         this.controller = new LoginController(this);
@@ -47,7 +46,7 @@ class Login extends Component {
                         <button type="button" className="login-button" onClick={submitAction} >Entrar</button>
                     </div>
                     <div className= "error-message">
-                    {error || passwordError ? <div>Usuário ou senha incorretos.</div> : ""}
+                        {error ? error  : ""}
                     </div>
                 </form>
             </div>

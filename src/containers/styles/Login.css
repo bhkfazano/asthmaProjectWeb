@@ -58,3 +58,11 @@
 .image {
     width: 100%;
 }
+
+.error-message{
+    height: 18px;
+    padding-top: 10px;
+    font-size: 16px;
+    color: #ff5151;
+    text-align: center;
+}
