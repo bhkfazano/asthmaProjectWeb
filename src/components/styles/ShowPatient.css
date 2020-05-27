@@ -1,4 +1,4 @@
-.professional-box {
+.patient-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -6,7 +6,7 @@
     margin-bottom: 5px;
 }
 
-.professional-value {
+.patient-value {
     display: flex;
     align-items: center;
     width: 32%;
@@ -19,6 +19,6 @@
     letter-spacing: 1px;
 }
 
-.professional-box:hover {
+.patient-box:hover {
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
 }

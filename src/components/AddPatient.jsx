@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { connect } from 'react-redux';
 
 import Input from './Input';
@@ -6,6 +7,7 @@ import { AddPatientController } from '../controllers/index';
 import './styles/AddPatient.css';
 
 class AddPatient extends Component {
+
 
     constructor(props) {
         super(props);
@@ -201,6 +203,7 @@ etc) você usou por dia?</font>
                 </form>
                 <br></br><div className="add-button-container">
                     <div className="add-patient-button">cadastrar paciente</div>
+
                 </div>
             </div>
         );
@@ -209,5 +212,4 @@ etc) você usou por dia?</font>
 }
 
 export default connect(null, {  })(AddPatient);
-
 
