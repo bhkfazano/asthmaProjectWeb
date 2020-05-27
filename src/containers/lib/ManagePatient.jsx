@@ -5,6 +5,7 @@ import _ from 'lodash';
 import { ManagePatientController } from '../../controllers/index';
 import '../styles/ManagePatient.css';
 import ShowPatient from '../../components/ShowPatient.jsx'
+import AddPatient from '../../components/AddPatient.jsx'
 import Button from '../../components/IconButton';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import AddIcon from '@material-ui/icons/Add';
@@ -15,6 +16,7 @@ class ManagePatient extends Component {
         super(props);
         this.state = {
             values: {
+                add: false,
                 cpf: "",
                 name: "",
                 email: "",
@@ -52,7 +54,7 @@ class ManagePatient extends Component {
         const { toggleForm, handleSubmit, handleChange } = this.controller;
 
         return (
-            <div className="container-background">
+            !this.state.values.add ? <div className="container-background">
                 <div className="container-pat-header">
                     <label className="header-pat-title">Pacientes</label>
                     <label className="total-prof">
@@ -70,10 +72,8 @@ class ManagePatient extends Component {
                         </div>
                         {this.renderPatients()}
                     </div>
-                    
-                    
                 </div>
-            </div>
+            </div> : <AddPatient handleExit={toggleForm} />
         );
     }
 

@@ -4,7 +4,10 @@ import { connect } from 'react-redux';
 
 import Input from './Input';
 import { AddPatientController } from '../controllers/index';
+import ClearIcon from '@material-ui/icons/Clear';
 import './styles/AddPatient.css';
+import Button from './IconButton';
+
 
 class AddPatient extends Component {
 
@@ -43,6 +46,7 @@ class AddPatient extends Component {
 
         return (
             <div className="form-container">
+                <Button onclick={this.props.handleExit} classname="exit-button-form" Icon={ClearIcon} size="default" color="primary" />
                 <form className="add-form" noValidate autoComplete="off">
                     <div className="half-form">
                         <div className="form-title">Informações de Cadastro</div>
@@ -205,6 +209,7 @@ etc) você usou por dia?</font>
                     <div className="add-patient-button">cadastrar paciente</div>
 
                 </div>
+                
             </div>
         );
     }

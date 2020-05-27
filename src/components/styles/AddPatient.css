@@ -1,12 +1,24 @@
 .form-container {
     width: 1100px;
-    height: 2100px;
+    height: 750px;
     margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 50px;
     background-color: white;
     padding: 20px;
     border-radius: 5px;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-top: 40px;
+
+}
+
+.form-container .exit-button-form {
+    width: 24px;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    cursor: pointer;
 }
 
 .form-title {
@@ -37,6 +49,7 @@
     height: 100%;
     padding-left: 15px;
     padding-right: 15px;
+    overflow: auto;
 }
 
 .divider {
@@ -94,4 +107,8 @@ input:-webkit-autofill:active  {
 input:-webkit-autofill {
     -webkit-text-fill-color: #01202fe6;
     
+}
+
+.exit-button-form svg {
+    color: #56c7c6 !important;
 }
