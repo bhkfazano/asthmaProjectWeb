@@ -9,7 +9,9 @@ export default class BaseRepository {
     }
 
     async post(endpoint, body) {
+        
         return await axios.post(`${ROOT_URL}${endpoint}`, body);
+    
     }
 
     async put(endpoint, body) {

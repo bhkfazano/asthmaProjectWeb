@@ -48,7 +48,6 @@ class ManageTeam extends Component {
     }
 
     render() {
-        console.log(this.state)
         const { toggleForm, handleSubmit, handleChange } = this.controller;
 
         return (

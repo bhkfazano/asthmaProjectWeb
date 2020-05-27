@@ -17,5 +17,4 @@ export default class ProfessionalRepository extends BaseRepository {
     async fetch() {
         return await this.get('/professionals');
     }
-
 }

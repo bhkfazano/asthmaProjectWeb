@@ -14,16 +14,17 @@ class Login extends Component {
         this.state = {
             values: {
                 cpf: "",
-                password: ""
+                password: "",
+                error: false,
+                passwordError: false
             }
         };
         this.controller = new LoginController(this);
     }
 
     render() {
-
         const { submitAction, handleChange } = this.controller;
-        const { cpf, password } = this.state.values;
+        const { cpf, password, error, passwordError} = this.state.values;
 
         return (
             <div className="container-box">
@@ -44,6 +45,9 @@ class Login extends Component {
                     </div>
                     <div className="bbtt" >
                         <button type="button" className="login-button" onClick={submitAction} >Entrar</button>
+                    </div>
+                    <div className= "error-message">
+                    {error || passwordError ? <div>Usuário ou senha incorretos.</div> : ""}
                     </div>
                 </form>
             </div>
