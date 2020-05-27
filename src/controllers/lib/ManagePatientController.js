@@ -32,7 +32,7 @@ export default class ManagePatientController extends MainController {
 
         const { cpf, full_name, personal_phone, email, birth_date } = {...this.state.values};
 
-        const data = await this.controller.patientRepository.signup({
+        const data = await this.controller.patientRepository.register({
             cpf,
             full_name,
             personal_phone,

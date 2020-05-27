@@ -22,11 +22,18 @@ class ManagePatient extends Component {
                 email: "",
                 personal_phone: "",
                 birth_date: "",
-                ans_1: "",
-                ans_2: "",
-                ans_3: "",
-                ans_4: "",
-                ans_5: ""
+                hm_1: "",
+                hm_2: "",
+                hm_3: "",
+                hm_4: "",
+                hm_5: "",
+                hm_6: "",
+                hm_7: "",
+                exerc_1: "",
+                exerc_2: "",
+                exerc_3: "",
+                exerc_4: "",
+                exerc_5: ""
             }
         };
 
@@ -73,7 +80,7 @@ class ManagePatient extends Component {
                         {this.renderPatients()}
                     </div>
                 </div>
-            </div> : <AddPatient handleExit={toggleForm} />
+            </div> : <AddPatient values={this.state.values} handleChange={handleChange} handleSubmit={handleSubmit} handleExit={toggleForm} />
         );
     }
 

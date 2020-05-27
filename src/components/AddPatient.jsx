@@ -16,34 +16,16 @@ class AddPatient extends Component {
         super(props);
         this.state = {
             values: {
-                cpf: "",
-                name: "",
-                email: "",
-                personal_phone: "",
-                birth_date: "",
-                hm_1: "",
-                hm_2: "",
-                hm_3: "",
-                hm_4: "",
-                hm_5: "",
-                hm_6: "",
-                hm_7: "",
-                exerc_1: "",
-                exerc_2: "",
-                exerc_3: "",
-                exerc_4: "",
-                exerc_5: ""
+                
             }
         };
 
-        this.controller = new AddPatientController(this);
     }
 
     render() {
 
-        const { name, cpf, email, personal_phone, birth_date, hm_1, hm_2, hm_3, hm_4, hm_5, hm_6, hm_7, exerc_1, exerc_2, exerc_3, exerc_4, exerc_5 } = this.state.values;
-        const {handleChange} = this.controller;
-
+        const { name, cpf, email, personal_phone, birth_date, hm_1, hm_2, hm_3, hm_4, hm_5, hm_6, hm_7, exerc_1, exerc_2, exerc_3, exerc_4, exerc_5 } = this.props.values;
+        const { handleChange } = this.props;
         return (
             <div className="form-container">
                 <Button onclick={this.props.handleExit} classname="exit-button-form" Icon={ClearIcon} size="default" color="primary" />
@@ -206,8 +188,7 @@ etc) você usou por dia?</font>
 
                 </form>
                 <br></br><div className="add-button-container">
-                    <div className="add-patient-button">cadastrar paciente</div>
-
+                    <div className="add-patient-button" onClick={this.props.handleSubmit}>cadastrar paciente</div>
                 </div>
                 
             </div>
