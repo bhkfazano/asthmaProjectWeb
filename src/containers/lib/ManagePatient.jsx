@@ -60,9 +60,9 @@ class ManagePatient extends Component {
                 if (patient) {
                     return (
                         <ShowPatient 
-                            key={patient._id}
-                            name={patient.full_name} 
-                            phone={patient.personal_phone} 
+                            key={patient.pat._id}
+                            name={patient.pat.full_name} 
+                            phone={patient.pat.personal_phone} 
                         />
                     );
                 }
@@ -71,7 +71,7 @@ class ManagePatient extends Component {
     }
 
     render() {
-        console.log(this.state.values)
+        console.log(this.props)
         const { toggleForm, handleSubmit, handleChange, handleStep } = this.controller;
 
         return (
