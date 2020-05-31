@@ -6,6 +6,7 @@ import { ManagePatientController } from '../../controllers/index';
 import '../styles/ManagePatient.css';
 import ShowPatient from '../../components/ShowPatient.jsx'
 import AddPatient from '../../components/AddPatient.jsx'
+import { setPatients } from '../../actions/index';
 import Button from '../../components/IconButton';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import AddIcon from '@material-ui/icons/Add';
@@ -16,9 +17,10 @@ class ManagePatient extends Component {
         super(props);
         this.state = {
             values: {
+                step: 1,
                 add: false,
                 cpf: "",
-                name: "",
+                full_name: "",
                 email: "",
                 personal_phone: "",
                 birth_date: "",
@@ -28,12 +30,20 @@ class ManagePatient extends Component {
                 hm_4: "",
                 hm_5: "",
                 hm_6: "",
-                hm_7: "",
-                exerc_1: "",
-                exerc_2: "",
-                exerc_3: "",
-                exerc_4: "",
-                exerc_5: ""
+                steps: "",
+                km: "",
+                other: "",
+                resp: "",
+                obs: ""
+            },
+            errors: {
+                e_cpf: "",
+                e_full_name: "",
+                e_email: "",
+                e_personal_phone: "",
+                e_birth_date: "",
+                step2: "",
+                step3: ""
             }
         };
 
@@ -45,23 +55,28 @@ class ManagePatient extends Component {
     }
 
     renderPatients() {
-        return _.map(this.props.patients, patient => {
-            return (
-                <ShowPatient 
-                    key={patient._id}
-                    name={patient.full_name} 
-                    phone={patient.personal_phone} 
-                />
-            );
-        });
+        if (this.props.patients) {
+            return _.map(this.props.patients, patient => {
+                if (patient) {
+                    return (
+                        <ShowPatient 
+                            key={patient._id}
+                            name={patient.full_name} 
+                            phone={patient.personal_phone} 
+                        />
+                    );
+                }
+            });
+        }
     }
 
     render() {
-        console.log(this.props)
-        const { toggleForm, handleSubmit, handleChange } = this.controller;
+        console.log(this.state.values)
+        const { toggleForm, handleSubmit, handleChange, handleStep } = this.controller;
 
         return (
-            !this.state.values.add ? <div className="container-background">
+            !this.state.values.add ? 
+            <div className="container-background">
                 <div className="container-pat-header">
                     <label className="header-pat-title">Pacientes</label>
                     <label className="total-prof">
@@ -80,7 +95,14 @@ class ManagePatient extends Component {
                         {this.renderPatients()}
                     </div>
                 </div>
-            </div> : <AddPatient values={this.state.values} handleChange={handleChange} handleSubmit={handleSubmit} handleExit={toggleForm} />
+            </div> : 
+            <AddPatient 
+                values={this.state.values} 
+                errors={this.state.errors}
+                handleChange={handleChange} 
+                handleSubmit={handleSubmit} 
+                handleStep={handleStep}
+                handleExit={toggleForm} />
         );
     }
 
@@ -88,8 +110,9 @@ class ManagePatient extends Component {
 
 function mapStateToProps(state) {
     return {
-        patients: state.patients
+        patients: state.patients,
+        user: state.currentUser
     };
 }
 
-export default connect(mapStateToProps, { })(ManagePatient);
+export default connect(mapStateToProps, { setPatients })(ManagePatient);
