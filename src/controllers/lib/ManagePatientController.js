@@ -1,5 +1,7 @@
 import MainController from './MainController.js';
 import { PatientRepository } from '../../api/index';
+import { storeState } from '../../utils/Common';
+
 
 export default class ManagePatientController extends MainController {
 
@@ -86,6 +88,7 @@ export default class ManagePatientController extends MainController {
             });
             const patients = await this.controller.patientRepository.fetchByProfessional({ id:this.props.user._id });
             await this.props.setPatients(patients.data.response);
+            storeState(this.props.view, this.props.user, this.props.patients);
 
             return this.controller.toggleForm()
         } catch(e) {

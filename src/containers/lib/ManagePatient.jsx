@@ -71,7 +71,6 @@ class ManagePatient extends Component {
     }
 
     render() {
-        console.log(this.props)
         const { toggleForm, handleSubmit, handleChange, handleStep } = this.controller;
 
         return (
@@ -111,7 +110,8 @@ class ManagePatient extends Component {
 function mapStateToProps(state) {
     return {
         patients: state.patients,
-        user: state.currentUser
+        user: state.currentUser,
+        view: state.currentView
     };
 }
 
