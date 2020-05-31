@@ -16,14 +16,13 @@ export default class ShowPatient extends Component {
 
     render() {
 
-        const { name, phone } = this.props;
+        const { name, phone, handleClick } = this.props;
 
         return (
-            <div className="patient-box">
+            <div className="patient-box" onClick={handleClick}>
                 <label className="patient-value">{name}</label>
                 <label className="patient-value">{phone}</label>
-                <Button classname="menu-small-icon" Icon={RemoveCircleSharpIcon} size="small" />
-
+                
             </div>
 
         );

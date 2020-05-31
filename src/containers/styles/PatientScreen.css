@@ -1,0 +1,35 @@
+.patient-view-container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    min-width: 1000px;
+}
+
+.patient-view-header {
+     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.patient-view-title {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: larger;
+    color: #4a8196d9;
+    margin-left: 5px;
+}
+
+.patient-view-content {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.patient-overview {
+    width: 100%;
+    background-color: white;
+    height: 150px;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+}

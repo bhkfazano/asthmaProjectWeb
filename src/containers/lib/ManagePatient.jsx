@@ -6,7 +6,7 @@ import { ManagePatientController } from '../../controllers/index';
 import '../styles/ManagePatient.css';
 import ShowPatient from '../../components/ShowPatient.jsx'
 import AddPatient from '../../components/AddPatient.jsx'
-import { setPatients } from '../../actions/index';
+import { setPatients, changeView, setPatient } from '../../actions/index';
 import Button from '../../components/IconButton';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import AddIcon from '@material-ui/icons/Add';
@@ -55,6 +55,9 @@ class ManagePatient extends Component {
     }
 
     renderPatients() {
+
+        const { handleClick } = this.controller;
+
         if (this.props.patients) {
             return _.map(this.props.patients, patient => {
                 if (patient) {
@@ -63,6 +66,7 @@ class ManagePatient extends Component {
                             key={patient.pat._id}
                             name={patient.pat.full_name} 
                             phone={patient.pat.personal_phone} 
+                            handleClick={() => handleClick(patient)}
                         />
                     );
                 }
@@ -115,4 +119,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, { setPatients })(ManagePatient);
+export default connect(mapStateToProps, { setPatients, changeView, setPatient })(ManagePatient);
