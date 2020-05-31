@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ROOT_URL = `http://localhost:8080`;
+const ROOT_URL = `https://asthma-project-api.herokuapp.com/`;
 
 export default class BaseRepository {
 
