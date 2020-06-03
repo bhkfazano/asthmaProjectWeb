@@ -1,4 +1,8 @@
 import MainController from './MainController.js';
+import { PatientRepository } from '../../api/index';
+import { storeState } from '../../utils/Common';
+
+
 
 export default class PatientScreenController extends MainController {
 
@@ -6,17 +10,40 @@ export default class PatientScreenController extends MainController {
         super(context);
         this.toggleForm = this.toggleForm.bind(context);
         this.handleSubmit = this.handleSubmit.bind(context);
+        this.patientRepository = new PatientRepository();
     }
 
     async toggleForm() {
         const values = {...this.state.values};
+        if (values.changeGoals == true) {
+            values.steps = "";
+            values.km = "";
+            values.other = "";
+            values.resp = "";
+            values.obs = "";
+        }
         values.changeGoals = !values.changeGoals;
         await this.setState({ values });
     }
 
     async handleSubmit() {
-        const values = {...this.state.values};
-        console.log(values);
+        var { steps, km, other, resp, obs} = this.state.values;
+        const res = await this.controller.patientRepository.updateGoals({
+            steps,
+            km,
+            other,
+            resp,
+            obs,
+            patient_id : this.props.currentPatient.pat._id,
+            goals_id : this.props.currentPatient.goals._id
+        });
+
+        const patients = await this.controller.patientRepository.fetchByProfessional({ id : this.props.currentUser._id });
+        this.props.setPatients(patients.data.response);
+        await this.props.setPatient(res.data);
+        storeState(null, null, this.props.patients);
+        return this.controller.toggleForm();
+
     }
 
 

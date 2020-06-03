@@ -19,9 +19,9 @@ export const setUserSession = (token, user) => {
 }
 
 export const storeState = (view, user, patients) => {
-    sessionStorage.setItem('view', view);
-    sessionStorage.setItem('userData', JSON.stringify(user));
-    sessionStorage.setItem('patients', JSON.stringify(patients));
+    if (view) sessionStorage.setItem('view', view);
+    if (user) sessionStorage.setItem('userData', JSON.stringify(user));
+    if (patients) sessionStorage.setItem('patients', JSON.stringify(patients));
 }
 
 export const retrieveState = () => {

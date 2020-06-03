@@ -7,6 +7,7 @@ import { PatientScreenController } from '../../controllers'
 import CancelIcon from '@material-ui/icons/Cancel';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import SaveIcon from '@material-ui/icons/Save';
+import { setPatient, setPatients } from '../../actions/index';
 
 class PatientScreen extends Component {
 
@@ -32,7 +33,7 @@ class PatientScreen extends Component {
     }
 
     render() {
-        console.log(this.props.currentPatient);
+        console.log(this.props);
         const { goals, history, pat } = this.props.currentPatient;
         const { toggleForm, handleChange, handleSubmit } = this.controller;
         const { changeGoals, km, steps, resp, obs, other } = this.state.values;
@@ -126,8 +127,10 @@ class PatientScreen extends Component {
 function mapStateToProps(state) {
     return {
         view: state.currentView,
-        currentPatient: state.currentPatient
+        currentPatient: state.currentPatient,
+        currentUser : state.currentUser,
+        patients : state.patients
     };
 }
 
-export default connect(mapStateToProps, {})(PatientScreen);
+export default connect(mapStateToProps, {setPatient, setPatients})(PatientScreen);
