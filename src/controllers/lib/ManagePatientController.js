@@ -10,6 +10,7 @@ export default class ManagePatientController extends MainController {
         this.fetch = this.fetch.bind(context);
         this.toggleForm = this.toggleForm.bind(context);
         this.handleSubmit = this.handleSubmit.bind(context);
+        this.handleClick = this.handleClick.bind(context);
         this.handleStep = this.handleStep.bind(context);
         this.patientRepository = new PatientRepository();
     }
@@ -154,6 +155,12 @@ export default class ManagePatientController extends MainController {
         }
             
 
+    }
+
+    async handleClick(patient) {
+        this.props.changeView('patient');
+        await this.props.setPatient(patient);
+        return this.props.history.push(`/dashboard#patient?id=${patient.pat._id}`);
     }
 
 }

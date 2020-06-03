@@ -7,9 +7,9 @@ import { SideMenu } from '../index';
 import { changeView, removeUser } from '../../actions/index';
 import { DashboardController } from '../../controllers/index';
 import Header from '../../components/Header';
-import AddPatient from '../../components/AddPatient';
 import ManageTeam from './ManageTeam';
 import ManagePatient from './ManagePatient'
+import PatientScreen from './PatientScreen'
 
 class ProfessionalDashboard extends Component {
 
@@ -36,6 +36,7 @@ class ProfessionalDashboard extends Component {
                     <div className="content-box">
                         {view == "patients" ? <ManagePatient history={this.props.history} /> : ""}
                         {view == "team" && admin ? <ManageTeam user={this.props.user} /> : ""}
+                        {view == "patient" ? <PatientScreen location={this.props.location} /> : ""}
                     </div>
                 </div>
             </div>

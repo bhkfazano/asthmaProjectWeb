@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 import viewReducer from './lib/viewReducer'
 import userReducer from './lib/userReducer'
 import patientReducer from './lib/patientReducer'
+import currentPatientReducer from './lib/currentPatientReducer'
 import teamReducer from './lib/teamReducer'
 
 const initialState = {
@@ -16,7 +17,8 @@ const appReducer = combineReducers({
   currentView: viewReducer,
   currentUser: userReducer,
   patients: patientReducer,
-  team: teamReducer
+  team: teamReducer,
+  currentPatient: currentPatientReducer
 })
 
 const rootReducer = (state = initialState, action) => {
