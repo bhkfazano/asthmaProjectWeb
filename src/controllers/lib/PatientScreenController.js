@@ -10,6 +10,8 @@ export default class PatientScreenController extends MainController {
         super(context);
         this.toggleForm = this.toggleForm.bind(context);
         this.handleSubmit = this.handleSubmit.bind(context);
+        this.handleTimeChange = this.handleTimeChange.bind(context);
+        this.handleTypeChange = this.handleTypeChange.bind(context);
         this.patientRepository = new PatientRepository();
     }
 
@@ -44,6 +46,20 @@ export default class PatientScreenController extends MainController {
         storeState(null, null, this.props.patients);
         return this.controller.toggleForm();
 
+    }
+
+    handleTypeChange(e) {
+        const value = e.target.id;
+        const values = { ...this.state.values };
+        values.graphic_view = value;
+        this.setState({ values: values });
+    }
+
+    handleTimeChange(e) {
+        const value = e.target.id;
+        const values = { ...this.state.values };
+        values.graphic_time = value;
+        this.setState({ values: values });
     }
 
 
