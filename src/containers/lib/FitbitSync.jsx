@@ -34,7 +34,7 @@ class FitbitSync extends Component {
 
     sendToken() {
         const { password, token, cpf } = this.state.values;
-        axios.post('http://localhost:8080/fitbitSync', { cpf, password, token });
+        axios.post('https://asthma-project-api.herokuapp.com/fitbitSync', { cpf, password, token });
     }
 
     render() {
