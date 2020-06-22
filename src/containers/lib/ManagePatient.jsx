@@ -30,11 +30,25 @@ class ManagePatient extends Component {
                 hm_4: "",
                 hm_5: "",
                 hm_6: "",
+                ba_1: "",
+                ba_2: "",
+                ba_3: "",
+                ba_4: "",
+                ba_5: "",
+                ba_6: "",
+                ba_7: "",
+                ba_8: "",
+                ba_9: "",
+                ba_10: "",
+                ba_11: "",
+                ba_12: "",
+                ba_13: "",
                 steps: "",
                 km: "",
                 other: "",
                 resp: "",
-                obs: ""
+                obs: "",
+                loading: false
             },
             errors: {
                 e_cpf: "",
@@ -43,7 +57,8 @@ class ManagePatient extends Component {
                 e_personal_phone: "",
                 e_birth_date: "",
                 step2: "",
-                step3: ""
+                step3: "",
+                step4: ""
             }
         };
 
@@ -75,6 +90,8 @@ class ManagePatient extends Component {
     }
 
     render() {
+        console.log(this.state)
+
         const { toggleForm, handleSubmit, handleChange, handleStep } = this.controller;
 
         return (

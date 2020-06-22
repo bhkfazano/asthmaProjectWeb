@@ -65,3 +65,10 @@
     color: #ff5151;
     text-align: center;
 }
+
+.loading {
+    top: 0;
+    width: 100%;
+    position: absolute !important;
+    overflow: hidden;
+}

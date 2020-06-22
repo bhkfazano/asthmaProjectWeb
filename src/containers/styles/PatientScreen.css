@@ -5,12 +5,23 @@
     min-width: 1000px;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(237, 254, 255);
+}
+::-webkit-scrollbar-thumb {
+  background: #94b3e0ad;
+}
+
 label {
     margin-bottom: 0;
 }
 
 .patient-view-header {
-     display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 12px;
@@ -253,14 +264,55 @@ label {
 
 .patient-view-last {
     width: 100%;
-    height: 300px;
+    height: 400px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.history-box {
+    width: 48%;
+    height: 100%;
     background-color: white;
     box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 30px;
+    justify-content: space-between;
+}
+
+.history-container {
+    width: 48%;
+    height: 96%;
+    overflow: auto;
+    padding-right: 10px;
+}
+
+.history-question {
+    font-size: normal;
+    color: #7190a2;
+}
+
+.question-answer {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+    color: #7382ff;
+}
+
+.symptoms-box {
+    width: 48%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 20px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 tspan {
     font-size: small;
 }
+

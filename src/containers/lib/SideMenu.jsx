@@ -30,9 +30,6 @@ class SideMenu extends Component {
                     <div className="side-menu-button first">
                         Menu
                     </div>
-                    <div className={(select === "home" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("home")}>
-                        Início
-                    </div>
                     <div className={(select === "statistics" ? "sele" : "") + " side-menu-button mid"} onClick={(e) => this.controller.handleClick("statistics")}>
                         Estatísticas
                     </div>

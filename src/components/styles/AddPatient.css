@@ -206,3 +206,10 @@ input:-webkit-autofill {
 .next-step-button svg {
     color: #56c7c6 !important;
 }
+
+.loading-register-patient {
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: absolute !important;
+}

@@ -50,21 +50,28 @@ export default class ManagePatientController extends MainController {
         errors.step1 = false;
         errors.step2 = false;
         errors.step3 = false;
+        errors.step4 = false;
         
         return this.setState({ values, errors });
     }
     
     async handleSubmit() {
         
-        const { cpf, full_name, personal_phone, email, birth_date, steps, km, other, resp, obs, hm_1, hm_2, hm_3, hm_4, hm_5, hm_6, step } = {...this.state.values}
+        const { cpf, full_name, personal_phone, email, birth_date, steps, km, other, resp, obs, 
+            hm_1, hm_2, hm_3, hm_4, hm_5, hm_6, step, 
+            ba_1, ba_2, ba_3, ba_4, ba_5, ba_6, ba_7, ba_8, ba_9, ba_10, ba_11, ba_12, ba_13 } = {...this.state.values}
         const errors = { ...this.state.errors };
         const values = { ...this.state.values };
         
         if (!steps && !km && !other && !resp && !obs) {
-            errors.step3 = true
+            errors.step4 = true
             return this.setState({ errors });
         }
-        errors.step3 = false;
+        errors.step4 = false;
+
+        values.loading = true;
+        this.setState({ values });
+
         try {
             const data = await this.controller.patientRepository.register({
                 cpf,
@@ -80,6 +87,21 @@ export default class ManagePatientController extends MainController {
                     hm_5,
                     hm_6
                 },
+                barriers: {
+                    ba_1,
+                    ba_2,
+                    ba_3,
+                    ba_4,
+                    ba_5,
+                    ba_6,
+                    ba_7,
+                    ba_8,
+                    ba_9,
+                    ba_10,
+                    ba_11,
+                    ba_12,
+                    ba_13
+                },
                 steps,
                 km,
                 other,
@@ -90,10 +112,12 @@ export default class ManagePatientController extends MainController {
             const patients = await this.controller.patientRepository.fetchByProfessional({ id:this.props.user._id });
             await this.props.setPatients(patients.data.response);
             storeState(this.props.view, this.props.user, this.props.patients);
-
+            values.loading = false;
+            this.setState({ values });
             return this.controller.toggleForm()
         } catch(e) {
             values.step = 1;        
+            values.loading = false;
             errors.step1 = "CPF ou email ja cadastrados!";  
             console.log(e.response);
             return this.setState({values, errors});
@@ -104,7 +128,8 @@ export default class ManagePatientController extends MainController {
     handleStep() {
 
         const { cpf, full_name, personal_phone, email, birth_date,
-                hm_1, hm_2, hm_3, hm_4, hm_5, hm_6 } = { ...this.state.values };
+                hm_1, hm_2, hm_3, hm_4, hm_5, hm_6,
+                ba_1, ba_2, ba_3, ba_4, ba_5, ba_6, ba_7, ba_8, ba_9, ba_10, ba_11, ba_12, ba_13 } = { ...this.state.values };
         var { values } = this.state;
         
         if (values.step == 1) {
@@ -152,6 +177,18 @@ export default class ManagePatientController extends MainController {
             errors.step2 = true
             return this.setState({ errors });
         
+        } else if (values.step == 3) {
+            const errors = { ...this.state.errors };
+
+            if (ba_1 && ba_2 && ba_3 && ba_4 && ba_5 && ba_6 &&
+                ba_7 && ba_8 && ba_9 && ba_10 && ba_11 && ba_12 && ba_13) {
+                errors.step3 = false;
+                values.step = 4;
+                return this.setState({ values, errors });
+            }
+            errors.step3 = true
+            return this.setState({ errors });
+
         }
             
 

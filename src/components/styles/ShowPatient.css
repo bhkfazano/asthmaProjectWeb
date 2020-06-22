@@ -4,7 +4,7 @@
     justify-content: space-between;
     background-color: white;
     margin-bottom: 5px;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 .patient-value {
@@ -22,4 +22,8 @@
 
 .patient-box:hover {
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
+}
+
+label {
+    cursor: pointer;
 }
