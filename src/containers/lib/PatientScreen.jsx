@@ -40,10 +40,12 @@ class PatientScreen extends Component {
 
     componentDidMount() {
         const { dailySymptoms } = this.props.currentPatient.history;
-        const { dateTime } = dailySymptoms[dailySymptoms.length - 1];
-        const values = {...this.state.values};
-        values.date = dateTime;
-        this.setState({ values })
+        if (dailySymptoms && dailySymptoms.length && dailySymptoms.length > 0) {
+            const { dateTime } = dailySymptoms[dailySymptoms.length - 1];
+            const values = {...this.state.values};
+            values.date = dateTime;
+            this.setState({ values })
+        }
     }
 
     parseDate(date) {
