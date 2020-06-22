@@ -16,7 +16,7 @@
   background: #94b3e0ad;
 }
 
-label {
+.patient-view-container label {
     margin-bottom: 0;
 }
 
@@ -190,6 +190,7 @@ label {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin-top: 4px;
 }
 
 .graphic-type-item {
@@ -372,4 +373,8 @@ tspan {
     color: rgba(30, 35, 36, 0.705);
     font-size: .9em;
     
+}
+
+.pdf-link {
+    margin-left: 120px;
 }
