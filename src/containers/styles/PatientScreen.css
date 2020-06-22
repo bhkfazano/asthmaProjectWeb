@@ -225,19 +225,29 @@ label {
     font-size: 1.5em;
 }
 
-.patient-view-status {
+.patient-view-status-symptoms {
+    width: 48%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.status-box {
     width: 48%;
     height: 100%;
     background-color: white;
     box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 20px 0 rgba(0, 0, 0, 0.1);
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: column;
+    justify-content: flex-start;
 }
 
 .status-percent {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -252,6 +262,7 @@ label {
     flex-direction: column;
     align-items: center;
     justify-content: start;
+    margin-bottom: 30px;
 }
 
 .percent-title {
@@ -308,8 +319,9 @@ label {
     background-color: white;
     box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 20px 0 rgba(0, 0, 0, 0.1);
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: column;
+    justify-content: flex-start;
 }
 
 tspan {
@@ -318,4 +330,46 @@ tspan {
 
 .weight-label {
     margin-left: 50px;
+}
+
+.date-label {
+    margin-top: 25px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+}
+
+.date-select {
+    width: 180px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+}
+
+.symptoms-content {
+    width: 90%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: 50px;
+    margin-top: 10px;
+}
+
+.symptoms-item {
+    margin-bottom: 12px;
+}
+
+.symptoms-label {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: .9em;
+    color: #7482ff;
+    margin-right: 30px;
+    margin-bottom: 5px;
+}
+
+.symptoms-value {
+    color: rgba(30, 35, 36, 0.705);
+    font-size: .9em;
+    
 }

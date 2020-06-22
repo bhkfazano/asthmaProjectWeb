@@ -11,6 +11,9 @@ import Input from '../../components/Input'
 import { PatientScreenController } from '../../controllers'
 import CancelIcon from '@material-ui/icons/Cancel';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
 import SaveIcon from '@material-ui/icons/Save';
 import { setPatient, setPatients } from '../../actions/index';
 import { patientForm, barriers } from '../../assets/patientForm'
@@ -28,10 +31,19 @@ class PatientScreen extends Component {
                 km: "",
                 other: "",
                 resp: "",
-                obs: ""
+                obs: "",
+                date: ""
             }
         };
         this.controller = new PatientScreenController(this);
+    }
+
+    componentDidMount() {
+        const { dailySymptoms } = this.props.currentPatient.history;
+        const { dateTime } = dailySymptoms[dailySymptoms.length - 1];
+        const values = {...this.state.values};
+        values.date = dateTime;
+        this.setState({ values })
     }
 
     parseDate(date) {
@@ -112,11 +124,48 @@ class PatientScreen extends Component {
         }
     }
 
+    renderSymptoms() {
+        const { date } = this.state.values;
+        const { dailySymptoms } = this.props.currentPatient.history;
+        for (var i = 0; i < dailySymptoms.length; i++) {
+            if (dailySymptoms[i].dateTime == date) {
+                return(
+                    <div className="symptoms-content">
+                        <div className="symptoms-item">
+                            <label className="symptoms-label">tosse</label>
+                            <label className="symptoms-value">{dailySymptoms[i].values.tosse}</label>
+                        </div>
+                        <div className="symptoms-item">
+                            <label className="symptoms-label">chiado</label>
+                            <label className="symptoms-value">{dailySymptoms[i].values.chiado}</label>
+                        </div>
+                        <div className="symptoms-item">
+                            <label className="symptoms-label">falta de ar</label>
+                            <label className="symptoms-value">{dailySymptoms[i].values.falta_de_ar}</label>
+                        </div>
+                        <div className="symptoms-item">
+                            <label className="symptoms-label">acordar</label>
+                            <label className="symptoms-value">{dailySymptoms[i].values.acordar}</label>
+                        </div>
+                        <div className="symptoms-item">
+                            <label className="symptoms-label">bombinha</label>
+                            <label className="symptoms-value">{dailySymptoms[i].values.bombinha}</label>
+                        </div>
+                        <div className="symptoms-item">
+                            <label className="symptoms-label">pico de fluxo</label>
+                            <label className="symptoms-value">{dailySymptoms[i].values.pico_de_fluxo}</label>
+                        </div>
+                    </div>
+                );
+            }
+        }
+    }
+
     render() {
         console.log(this.props.currentPatient);
         const { goals, history, pat } = this.props.currentPatient;
-        const { toggleForm, handleChange, handleSubmit, handleTimeChange, handleTypeChange } = this.controller;
-        const { changeGoals, km, steps, resp, obs, other, graphic_time, graphic_view } = this.state.values;
+        const { toggleForm, handleChange, handleSubmit, handleTimeChange, handleTypeChange, handleSelect } = this.controller;
+        const { changeGoals, km, steps, resp, obs, other, graphic_time, graphic_view, date } = this.state.values;
         const { mActive, mDistance, mSteps, act, stp, dis } = this.getData();
         return(
             <div className="patient-view-container">
@@ -190,38 +239,61 @@ class PatientScreen extends Component {
                         </div>}
                     </div>
                     <div className="patient-view-header">
-                        <label className="patient-view-title">status</label>
+                        <label className="patient-view-title">status e diário de sintomas</label>
                         <label className="goals-title">progresso</label>
                     </div>
                     <div className="patient-view-mid">
-                        <div className="patient-view-status">
-                            <div className="status-percent">
-                                <div className="percent-item">
-                                    <label className="percent-title">META DE PASSOS</label>
-                                    <Progress 
-                                        progress={mSteps}
-                                        strokeWidth={16}
-                                        ballStrokeWidth={0}
-                                        reduction={0}
-                                        className="circular-progress"
-                                        gradient={[{
-                                            stop: 0.0, color: '#757396c2' }, { stop: 1, color: '#b7b4e8' }]}
-                                    />
-                                </div>
-                                <div className="percent-item">
-                                    <label className="percent-title">META DE DISTÂNCIA</label>
-                                    <Progress 
-                                        progress={mDistance}
-                                        strokeWidth={16}
-                                        ballStrokeWidth={0}
-                                        reduction={0}
-                                        className="circular-progress"
-                                        gradient={[{
-                                            stop: 0.0, color: '#757396c2' }, { stop: 1, color: '#b7b4e8' }]}
-                                    />
+                        <div className="patient-view-status-symptoms">
+                            <div className="status-box">
+                                <div className="status-percent">
+                                    <div className="percent-item">
+                                        <label className="percent-title">META DE PASSOS</label>
+                                        <Progress
+                                            progress={mSteps}
+                                            strokeWidth={16}
+                                            ballStrokeWidth={0}
+                                            reduction={0}
+                                            className="circular-progress"
+                                            gradient={[{
+                                                stop: 0.0, color: '#757396c2'
+                                            }, { stop: 1, color: '#b7b4e8' }]}
+                                        />
+                                    </div>
+                                    <div className="percent-item">
+                                        <label className="percent-title">META DE DISTÂNCIA</label>
+                                        <Progress
+                                            progress={mDistance}
+                                            strokeWidth={16}
+                                            ballStrokeWidth={0}
+                                            reduction={0}
+                                            className="circular-progress"
+                                            gradient={[{
+                                                stop: 0.0, color: '#757396c2'
+                                            }, { stop: 1, color: '#b7b4e8' }]}
+                                        />
+                                    </div>
                                 </div>
                             </div>
+                            <div className="symptoms-box">
+                                <InputLabel id="demo-simple-select-outlined-label" className="date-label">Data</InputLabel>
+                                <Select
+                                    className="date-select"
+                                    labelId="demo-simple-select-outlined-label"
+                                    id="demo-simple-select-outlined"
+                                    value={date}
+                                    onChange={handleSelect}
+                                    label="Data"
+                                >
+                                    {_.map(history.dailySymptoms, (register, index) => {
+                                        return (
+                                            <MenuItem value={register.dateTime}>{register.dateTime}</MenuItem>
+                                        );
+                                    })}
+                                </Select>
+                                {this.renderSymptoms()}
+                            </div>
                         </div>
+                        
                         <div className="patient-view-goals">
                             <div className="graphic-menu">
                                 <div className="graphic-list">
@@ -274,9 +346,7 @@ class PatientScreen extends Component {
                                 })}
                             </div>
                         </div>
-                        <div className="symptoms-box">
-                            
-                        </div>
+                        
                     </div>
                 </div>
             </div>

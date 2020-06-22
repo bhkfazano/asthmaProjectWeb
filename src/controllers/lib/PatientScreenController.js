@@ -12,6 +12,7 @@ export default class PatientScreenController extends MainController {
         this.handleSubmit = this.handleSubmit.bind(context);
         this.handleTimeChange = this.handleTimeChange.bind(context);
         this.handleTypeChange = this.handleTypeChange.bind(context);
+        this.handleSelect = this.handleSelect.bind(context);
         this.patientRepository = new PatientRepository();
     }
 
@@ -62,5 +63,11 @@ export default class PatientScreenController extends MainController {
         this.setState({ values: values });
     }
 
+    handleSelect(e) {
+        const value = e.target.value;
+        const values = { ...this.state.values };
+        values.date = value;
+        this.setState({ values: values });
+    }
 
 }
