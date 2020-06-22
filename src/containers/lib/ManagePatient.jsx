@@ -24,6 +24,8 @@ class ManagePatient extends Component {
                 email: "",
                 personal_phone: "",
                 birth_date: "",
+                height: "",
+                weight: "",
                 hm_1: "",
                 hm_2: "",
                 hm_3: "",
@@ -56,6 +58,8 @@ class ManagePatient extends Component {
                 e_email: "",
                 e_personal_phone: "",
                 e_birth_date: "",
+                e_height: "",
+                e_weight: "",
                 step2: "",
                 step3: "",
                 step4: ""

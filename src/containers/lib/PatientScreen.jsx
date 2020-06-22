@@ -142,6 +142,12 @@ class PatientScreen extends Component {
                                 <label className="topic-label">data de nascimento</label>
                                 <label className="topic-value">{this.parseDate(pat.birth_date)}</label>
                             </div>
+                            <div className="overview-item">
+                                <label className="topic-label">altura (cm)</label>
+                                <label className="topic-value">{pat.height}</label>
+                                <label className="topic-label weight-label">peso (kg)</label>
+                                <label className="topic-value">{pat.weight}</label>
+                            </div>
                         </div>
                         {!changeGoals ? 
                         <div className="overview-right">

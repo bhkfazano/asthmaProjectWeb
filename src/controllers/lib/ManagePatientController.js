@@ -57,7 +57,7 @@ export default class ManagePatientController extends MainController {
     
     async handleSubmit() {
         
-        const { cpf, full_name, personal_phone, email, birth_date, steps, km, other, resp, obs, 
+        const { cpf, full_name, personal_phone, email, birth_date, steps, km, other, resp, obs, height, weight,
             hm_1, hm_2, hm_3, hm_4, hm_5, hm_6, step, 
             ba_1, ba_2, ba_3, ba_4, ba_5, ba_6, ba_7, ba_8, ba_9, ba_10, ba_11, ba_12, ba_13 } = {...this.state.values}
         const errors = { ...this.state.errors };
@@ -79,6 +79,8 @@ export default class ManagePatientController extends MainController {
                 personal_phone,
                 email,
                 birth_date,
+                weight,
+                height,
                 medicalHistory: {
                     hm_1,
                     hm_2,
@@ -127,7 +129,7 @@ export default class ManagePatientController extends MainController {
 
     handleStep() {
 
-        const { cpf, full_name, personal_phone, email, birth_date,
+        const { cpf, full_name, personal_phone, email, birth_date, weight, height,
                 hm_1, hm_2, hm_3, hm_4, hm_5, hm_6,
                 ba_1, ba_2, ba_3, ba_4, ba_5, ba_6, ba_7, ba_8, ba_9, ba_10, ba_11, ba_12, ba_13 } = { ...this.state.values };
         var { values } = this.state;
@@ -140,6 +142,8 @@ export default class ManagePatientController extends MainController {
             errors.e_email = false;
             errors.e_full_name = false;
             errors.e_personal_phone = false;
+            errors.e_height = false;
+            errors.e_weight = false;
 
             const email_test = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
@@ -159,8 +163,14 @@ export default class ManagePatientController extends MainController {
             if (birth_date === "") {
                 errors.e_birth_date = true;
             }
+            if (weight == "") {
+                errors.e_weight = true;
+            }
+            if (height == "") {
+                errors.e_height = true;
+            }
 
-            if (!errors.e_email && !errors.e_full_name && !errors.e_personal_phone && !errors.e_cpf && !errors.e_birth_date) {
+            if (!errors.e_height && !errors.e_weight && !errors.e_email && !errors.e_full_name && !errors.e_personal_phone && !errors.e_cpf && !errors.e_birth_date) {
                 values.step = 2;
                 this.setState({ values });
             }

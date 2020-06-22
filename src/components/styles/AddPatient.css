@@ -37,7 +37,7 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    margin-top: 25px;
+    margin-top: 20px;
     border-radius: 50px;
     border: 1px solid #0bc6ff;
     cursor: pointer;
@@ -45,7 +45,7 @@
 
 .form-title {
     color: #7482ff;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: medium;
@@ -212,4 +212,12 @@ input:-webkit-autofill {
     left: 0;
     width: 100%;
     position: absolute !important;
+}
+
+.horizontal-login {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }

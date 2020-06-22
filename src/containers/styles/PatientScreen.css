@@ -316,3 +316,6 @@ tspan {
     font-size: small;
 }
 
+.weight-label {
+    margin-left: 50px;
+}

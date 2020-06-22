@@ -25,8 +25,8 @@ class AddPatient extends Component {
     }
 
     renderStepOne() {
-        const { full_name, cpf, email, personal_phone, birth_date, step } = this.props.values;
-        const { e_cpf, e_full_name, e_email, e_personal_phone, e_birth_date, step1 } = this.props.errors;
+        const { full_name, cpf, email, personal_phone, birth_date, weight, height } = this.props.values;
+        const { e_cpf, e_full_name, e_email, e_personal_phone, e_birth_date, step1, e_weight, e_height } = this.props.errors;
 
         const { handleChange, handleStep } = this.props;
 
@@ -38,6 +38,10 @@ class AddPatient extends Component {
                 <Input value={email} error={e_email} id="email" type="email" label="e-mail" handleChange={handleChange} />
                 <Input value={personal_phone} error={e_personal_phone} id="personal_phone" type="text" label="telefone" handleChange={handleChange} />
                 <Input value={birth_date} error={e_birth_date} id="birth_date" type="date" label="data de nascimento" handleChange={handleChange} />
+                <div className="horizontal-login">
+                    <Input value={weight} error={e_weight} id="weight" type="number" label="peso (kg)" handleChange={handleChange} />
+                    <Input value={height} error={e_height} id="height" type="number" label="altura (cm)" handleChange={handleChange} />
+                </div>
                 <div className="step2-error">
                     {step1 ? step1 : ""}
                 </div>
