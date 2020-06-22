@@ -90,3 +90,28 @@ export const patientForm = [
         number: 6
     }
 ];
+
+export const barriers = {
+    questions : [
+        { question : "Fatores pessoais:", id : "ba_1", number : 1 },
+        { question : "Não tenho interesse:", id : "ba_2", number : 2 },
+        { question : "Falta de tempo:", id : "ba_3", number : 3 },
+        { question : "Sinto que não tenho energia ou disposição:", id : "ba_4", number : 4 },
+        { question : "Tenho medo de sentir falta de ar:", id : "ba_5", number : 5 },
+        { question : "Fatores sociais:", id : "ba_6", number : 6 },
+        { question : "Não tenho companhia ou incentivo:", id : "ba_7", number : 7 },
+        { question : "Não tenho dinheiro:", id : "ba_8", number : 8 },
+        { question : "Tenho muitos afazeres:", id : "ba_9", number : 9 },
+        { question : "Fatores ambientais:", id : "ba_10", number : 10 },
+        { question : "Não tenho um local seguro disponível:", id : "ba_11", number : 11 },
+        { question : "Por causa do clima:", id : "ba_12", number : 12 },
+        { question : "Não tenho equipamentos para praticar:", id : "ba_13", number : 13 }
+    ],
+    answers : [
+        "Sempre",
+        "Quase sempre",
+        "Às vezes",
+        "Raramente",
+        "Nunca"
+    ]
+};

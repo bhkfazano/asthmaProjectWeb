@@ -22,7 +22,6 @@ export default class SideButtons extends Component {
             <div className="menu-box">
                 <Button classname="menu-button" Icon={MenuIcon} size="default" onclick={() => { this.props.toggle() }} />
                 <div className="small-items">
-                    <Button classname={(select === "home" ? "sel" : "") + " menu-small-icon"} onclick={(e) => onclick("home")} Icon={HomeIcon} size="default" />
                     <Button classname={(select === "statistics" ? "sel" : "") + " menu-small-icon"} onclick={(e) => onclick("statistics")} Icon={EqualizerIcon} size="default" />
                     <Button classname={(select === "patients" ? "sel" : "") + " menu-small-icon"} onclick={(e) => onclick("patients")} Icon={PersonAddIcon} size="default" />
                     {admin ? <Button classname={(select === "team" ? "sel" : "") + " menu-small-icon"} onclick={(e) => onclick("team")} Icon={LocalHospitalIcon} size="default" /> : <div className="menu-small-icon hidden" />}

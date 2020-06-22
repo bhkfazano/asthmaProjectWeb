@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 import '../styles/Login.css'
 
@@ -12,7 +13,9 @@ class FitbitSync extends Component {
             values: {
                 cpf: "",
                 password: "",
-                token: ""
+                token: "",
+                error: "",
+                loading: false
             }
         };
         this.sendToken = this.sendToken.bind(this);
@@ -32,17 +35,46 @@ class FitbitSync extends Component {
         this.setState({ values: values });
     }
 
-    sendToken() {
-        const { password, token, cpf } = this.state.values;
-        axios.post('https://asthma-project-api.herokuapp.com/fitbitSync', { cpf, password, token });
+    async sendToken() {
+        const { password, token, cpf, error, loading } = this.state.values;
+        const values = {...this.state.values};
+
+        values.error = "";
+        values.loading = true;
+        await this.setState({ values });
+        
+        try {
+            const res = await axios.post('https://asthma-project-api.herokuapp.com/fitbitSync', { cpf, password, token });
+            if (res && res.status == 200) {
+                values.loading = false;
+                this.setState({ values });
+                return this.props.history.push('/');
+                console.log(res);
+            }
+        } catch(e) {
+            if (e.response.status == 500) {
+                values.loading = false;
+                values.error = "Código expirado";
+                this.setState({ values });
+            } else if (e.response.status == 401) {
+                values.loading = false;
+                values.error = "Credenciais incorretas";
+                this.setState({ values });
+            } else if (e.response.status == 400) {
+                values.loading = false;
+                values.error = "Credenciais incorretas";
+                this.setState({ values });
+            }
+        }
     }
 
     render() {
 
-        const { cpf, password, token } = this.state.values;
+        const { cpf, password, token, loading, error } = this.state.values;
 
         return (
             <div className="container-box">
+                {loading ? <LinearProgress className="loading" /> : ""}
                 <form className="form-horizontal">
                     <div className="login-title">Token</div>
                     <div className="form-group">
@@ -63,6 +95,9 @@ class FitbitSync extends Component {
                     </div>
                     <div className="bbtt" >
                         <button type="button" className="login-button" onClick={this.sendToken}>Validar</button>
+                    </div>
+                    <div className="login-error-message">
+                        {error ? error : ""}
                     </div>
                 </form>
             </div>

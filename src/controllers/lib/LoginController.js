@@ -13,6 +13,8 @@ export default class LoginController extends MainController {
 
   async submitAction() {
     const values = { ...this.state.values };
+    values.loading = true;
+    this.setState({ values });
 
     try{
       const res = await this.controller.professionalRepository.login(values);
@@ -22,6 +24,7 @@ export default class LoginController extends MainController {
 
       if (res && res.status === 200) {
         values.error = false;
+        values.loading = false;
         this.setState({values : values});
         delete res.data.prof.password;
         setUserSession(res.data.token, res.data.prof._id);
@@ -36,11 +39,13 @@ export default class LoginController extends MainController {
     }
     catch(error){
       if (error.response.status === 400 || error.response.status == 401) {
-        values.error = "CPF ou senha inválidos!"
+        values.error = "CPF ou senha inválidos!";
+        values.loading = false;
         this.setState({values : values});
       }
       else {
         values.error = "Erro no servidor, tente novamente mais tarde!";
+        values.loading = false;
         this.setState({values : values});
       }
     }

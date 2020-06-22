@@ -3,10 +3,11 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 
 import Input from './Input';
-import {patientForm} from '../assets/patientForm';
+import {patientForm, barriers} from '../assets/patientForm';
 import ClearIcon from '@material-ui/icons/Clear';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import './styles/AddPatient.css';
 import Button from './IconButton';
 
@@ -85,10 +86,47 @@ class AddPatient extends Component {
     }
 
     renderStepThree() {
+        const { ba_1, ba_2, ba_3, ba_4, ba_5, ba_6, ba_7, ba_8, ba_9, ba_10, ba_11, ba_12, ba_13 } = this.props.values;
+        const { handleChange, handleStep } = this.props;
+        const { step3 } = this.props.errors;
+        const names = [ba_1, ba_2, ba_3, ba_4, ba_5, ba_6, ba_7, ba_8, ba_9, ba_10, ba_11, ba_12, ba_13]
+
+        return(
+            <div className="second-form">
+                <div className="form-title">BARREIRAS PARA PRÁTICA DE ATIVIDADES FÍSICAS</div>
+                {_.map(barriers.questions, question => {
+                    return (
+                        <div className="question-form">
+
+                            <div className="question-title">{question.number + ". " + question.question}</div>
+                            {_.map(barriers.answers, option => {
+                                return (
+                                    <div className="radio-option">
+                                        <input className="radio-input" type="radio" id={question.id} name={question.number} value={option} onChange={handleChange} />
+                                        <label className="radio-label" for={option}>{option}</label>
+                                    </div>
+                                );
+                            })}
+
+                        </div>
+                    );
+                })}
+                <div className="step2-error">
+                    {step3 ? "Responda todas as questões." : ""}
+                </div>
+                <div className="next-step-button">
+                    <Button onclick={handleStep} classname="next-button-form" size="large" color="primary" Icon={NavigateNextIcon} />
+                </div>
+            </div>
+        );
+
+    }
+
+    renderStepFour() {
 
         const { steps, km, other, resp, obs } = this.props.values;
         const { handleChange, handleSubmit } = this.props;
-        const { step3 } = this.props.errors;
+        const { step4 } = this.props.errors;
 
         return(
             <div className="last-form">
@@ -104,18 +142,19 @@ class AddPatient extends Component {
                     confirmar cadastro
                 </div>
                 <div className="step2-error">
-                    {step3 ? "Responda todas as questões." : ""}
+                    {step4 ? "Responda todas as questões." : ""}
                 </div>
             </div >
         );
     }
 
     render() {
-
-        const { step } = this.props.values;
+    
+        const { step, loading } = this.props.values;
 
         return (
             <div className="form-container">
+                {loading ? <LinearProgress className="loading-register-patient" /> : ""}
                 <Button onclick={this.props.handleExit} classname="exit-button-form" Icon={ClearIcon} size="default" color="primary" />
                 {step == 1 ? 
                     this.renderStepOne()
@@ -125,6 +164,9 @@ class AddPatient extends Component {
                 : " "}                
                 {step == 3 ? 
                     this.renderStepThree()
+                : " "}                
+                {step == 4 ? 
+                    this.renderStepFour()
                 : " "}                
             </div>
         );

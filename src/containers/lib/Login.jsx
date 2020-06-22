@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 import '../styles/Login.css'
 import logo from '../../assets/inalador.png'
@@ -15,7 +16,8 @@ class Login extends Component {
             values: {
                 cpf: "",
                 password: "",
-                error: false
+                error: false,
+                loading: false
             }
         };
         this.controller = new LoginController(this);
@@ -23,10 +25,11 @@ class Login extends Component {
 
     render() {
         const { submitAction, handleChange } = this.controller;
-        const { cpf, password, error, passwordError} = this.state.values;
+        const { cpf, password, error, loading} = this.state.values;
 
         return (
             <div className="container-box">
+                {loading ? <LinearProgress className="loading" /> : ""}
                 <div className="image-box">
                     <img className="image" src={logo} />
                 </div>
@@ -43,7 +46,7 @@ class Login extends Component {
                         </div>
                     </div>
                     <div className="bbtt" >
-                        <button type="button" className="login-button" onClick={submitAction} >Entrar</button>
+                        <button disabled={loading} type="button" className="login-button" onClick={submitAction} >Entrar</button>
                     </div>
                     <div className= "login-error-message">
                         {error ? error  : ""}

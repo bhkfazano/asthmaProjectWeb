@@ -4,7 +4,7 @@ import {
     AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Legend
 } from 'recharts';
 import Progress from 'react-circle-progress-bar'
-
+import _ from 'lodash';
 import '../styles/PatientScreen.css';
 import Button from '../../components/IconButton'
 import Input from '../../components/Input'
@@ -13,6 +13,7 @@ import CancelIcon from '@material-ui/icons/Cancel';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import SaveIcon from '@material-ui/icons/Save';
 import { setPatient, setPatients } from '../../actions/index';
+import { patientForm, barriers } from '../../assets/patientForm'
 
 class PatientScreen extends Component {
 
@@ -22,7 +23,7 @@ class PatientScreen extends Component {
             values: {
                 changeGoals: false,
                 graphic_view: "steps",
-                graphic_time: "7D",
+                graphic_time: "7",
                 steps: "",
                 km: "",
                 other: "",
@@ -40,8 +41,12 @@ class PatientScreen extends Component {
     }
 
     getData() {
-        const { steps, distance, sedentary, active } = this.props.currentPatient.history;
+        const { steps, distance, sedentary, active, fairlyActive } = this.props.currentPatient.history;
         const { kmPerWeek, stepsPerDay } = this.props.currentPatient.goals;
+        const { graphic_time } = this.state.values;
+        const act = new Array(parseInt(graphic_time)).fill({ dateTime: "", value: 0 });
+        const stp = new Array(parseInt(graphic_time)).fill({ dateTime: "", value: 0 });
+        const dis = new Array(parseInt(graphic_time)).fill({ dateTime: "", value: 0 });
 
         var mSteps = 0;
         var mDistance = 0;
@@ -49,29 +54,37 @@ class PatientScreen extends Component {
         for (var i = 0; i < sedentary.length; i++) {
             mSteps +=parseFloat(steps[i].value);
             mDistance += parseFloat(distance[i].value);
-            mActive  += parseFloat(active[i].value);
+            mActive += parseFloat(active[i].value) + parseFloat(fairlyActive[i].value);
         }
         mActive = mActive/steps.length; 
         mSteps = mSteps*100/steps.length/stepsPerDay; 
         mDistance = mDistance*700/steps.length/kmPerWeek; 
-        return { mActive, mDistance, mSteps };
+
+        for (var i = 0; i < act.length; i++) {
+
+            if (!sedentary[sedentary.length - parseInt(graphic_time) + i]) {
+                continue;
+            }
+
+            act[i] = { dateTime: sedentary[sedentary.length - parseInt(graphic_time) + i].dateTime, sedentary: sedentary[sedentary.length - parseInt(graphic_time) + i].value, active: active[sedentary.length - parseInt(graphic_time) + i].value + fairlyActive[sedentary.length - parseInt(graphic_time) + i].value };
+            stp[i] = { dateTime: steps[steps.length - parseInt(graphic_time) + i].dateTime, value: steps[steps.length - parseInt(graphic_time) + i].value};
+            dis[i] = { dateTime: distance[distance.length - parseInt(graphic_time) + i].dateTime, value: distance[distance.length - parseInt(graphic_time) + i].value};
+
+        }
+
+        return { mActive, mDistance, mSteps, act, stp, dis };
     }
 
-    renderGraphic() {
+    renderGraphic(act, stp, dis) {
         const { graphic_view } = this.state.values;
-        const { steps, distance, sedentary, active } = this.props.currentPatient.history;
 
         if (graphic_view == "activity") {
-            const data = []
-            for (var i = 0; i < sedentary.length; i++) {
-                data.push({ dateTime : sedentary[i].dateTime, sedentary : sedentary[i].value, active : active[i].value });
-            }
-            console.log(data)
+
             return(
                 <AreaChart
                     width={450}
                     height={350}
-                    data={data}
+                    data={act}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="dateTime" />
@@ -86,7 +99,7 @@ class PatientScreen extends Component {
                 <AreaChart
                     width={450}
                     height={350}
-                    data={graphic_view == "steps" ? steps : distance}
+                    data={graphic_view == "steps" ? stp : dis}
                     className="graphic"
                 >
                     <CartesianGrid strokeDasharray="3 3" />
@@ -100,11 +113,11 @@ class PatientScreen extends Component {
     }
 
     render() {
-        console.log(this.props);
+        console.log(this.props.currentPatient);
         const { goals, history, pat } = this.props.currentPatient;
         const { toggleForm, handleChange, handleSubmit, handleTimeChange, handleTypeChange } = this.controller;
         const { changeGoals, km, steps, resp, obs, other, graphic_time, graphic_view } = this.state.values;
-        const { mActive, mDistance, mSteps } = this.getData();
+        const { mActive, mDistance, mSteps, act, stp, dis } = this.getData();
         return(
             <div className="patient-view-container">
                 <div className="patient-view-header">
@@ -211,21 +224,53 @@ class PatientScreen extends Component {
                                     <label id="activity" onClick={handleTypeChange} className={`graphic-type-item ${graphic_view == "activity" ? "selected" : ""}`}>ATIVIDADE</label>
                                 </div>
                                 <div className="graphic-list">
-                                    <label id="7D" onClick={handleTimeChange} className={`graphic-time-item ${graphic_time == "7D" ? "selected" : ""}`}>7D</label>
-                                    <label id="1M" onClick={handleTimeChange} className={`graphic-time-item ${graphic_time == "1M" ? "selected" : ""}`}>1M</label>
-                                    <label id="3M" onClick={handleTimeChange} className={`graphic-time-item ${graphic_time == "3M" ? "selected" : ""}`}>3M</label>
-                                    <label id="6M" onClick={handleTimeChange} className={`graphic-time-item ${graphic_time == "6M" ? "selected" : ""}`}>6M</label>
-                                    <label id="1A" onClick={handleTimeChange} className={`graphic-time-item ${graphic_time == "1A" ? "selected" : ""}`}>1A</label>
+                                    <label id="7" onClick={handleTimeChange} className={`graphic-time-item ${graphic_time == "7" ? "selected" : ""}`}>7D</label>
+                                    <label id="30" onClick={handleTimeChange} className={`graphic-time-item ${graphic_time == "30" ? "selected" : ""}`}>1M</label>
+                                    <label id="90" onClick={handleTimeChange} className={`graphic-time-item ${graphic_time == "90" ? "selected" : ""}`}>3M</label>
+                                    <label id="182" onClick={handleTimeChange} className={`graphic-time-item ${graphic_time == "182" ? "selected" : ""}`}>6M</label>
+                                    <label id="365" onClick={handleTimeChange} className={`graphic-time-item ${graphic_time == "365" ? "selected" : ""}`}>1A</label>
                                 </div>
                             </div>
-                            {this.renderGraphic()}
+                            {this.renderGraphic(act, stp, dis)}
                         </div>
                     </div>
                     <div className="patient-view-header">
-                        <label className="patient-view-title">histórico médico e diário de sintomas</label>
+                        <label className="patient-view-title">histórico médico e barreiras</label>
+                        <label className="patient-view-title">Diário de sintomas</label>
                     </div>
                     <div className="patient-view-last">
+                        <div className="history-box">
+                            <div className="history-container">
+                                {_.map(patientForm, question => {
+                                    return (
+                                        <div className="question-form">
 
+                                            <div className="history-question">{question.number + ". " + question.question}</div>
+                                            <div className="question-answer">{history.medicalHistory[question.id]}</div>
+
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                            <div className="history-container">
+                                <div className="history-question">
+                                    Dentre os fatores abaixo, quais são os mais comuns para você não praticar atividades físicas:
+                                </div>
+                                {_.map(barriers.questions, question => {
+                                    return (
+                                        <div className="question-form">
+
+                                            <div className="history-question">{question.number + ". " + question.question}</div>
+                                            <div className="question-answer">{history.barriers[question.id]}</div>
+
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                        <div className="symptoms-box">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
