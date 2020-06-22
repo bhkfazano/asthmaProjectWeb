@@ -302,14 +302,14 @@ label {
 }
 
 .history-question {
-    font-size: normal;
+    font-size: .9em;
     color: #7190a2;
 }
 
 .question-answer {
     margin-top: 10px;
     margin-bottom: 5px;
-    font-size: 1.1em;
+    font-size: 1em;
     color: #7382ff;
 }
 
