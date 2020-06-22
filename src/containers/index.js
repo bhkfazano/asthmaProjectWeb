@@ -4,6 +4,7 @@ import SideMenu from './lib/SideMenu';
 import ManageTeam from './lib/ManageTeam';
 import FitbitSync from './lib/FitbitSync';
 import PatientScreen from './lib/PatientScreen';
+import PdfGenerator from './lib/PdfGenerator';
 
 export {
     Login,
@@ -11,5 +12,6 @@ export {
     SideMenu,
     ManageTeam,
     FitbitSync,
-    PatientScreen
+    PatientScreen,
+    PdfGenerator
 };

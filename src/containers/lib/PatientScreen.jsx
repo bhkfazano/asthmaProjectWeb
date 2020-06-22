@@ -17,6 +17,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import SaveIcon from '@material-ui/icons/Save';
 import { setPatient, setPatients } from '../../actions/index';
 import { patientForm, barriers } from '../../assets/patientForm'
+import { Link } from "react-router-dom";
 
 class PatientScreen extends Component {
 
@@ -46,6 +47,7 @@ class PatientScreen extends Component {
             values.date = dateTime;
             this.setState({ values })
         }
+        sessionStorage.setItem('patient', JSON.stringify(this.props.currentPatient));
     }
 
     parseDate(date) {
@@ -164,7 +166,7 @@ class PatientScreen extends Component {
     }
 
     render() {
-        console.log(this.props.currentPatient);
+        
         const { goals, history, pat } = this.props.currentPatient;
         const { toggleForm, handleChange, handleSubmit, handleTimeChange, handleTypeChange, handleSelect } = this.controller;
         const { changeGoals, km, steps, resp, obs, other, graphic_time, graphic_view, date } = this.state.values;
@@ -198,6 +200,7 @@ class PatientScreen extends Component {
                                 <label className="topic-value">{pat.height}</label>
                                 <label className="topic-label weight-label">peso (kg)</label>
                                 <label className="topic-value">{pat.weight}</label>
+                                <Link className="pdf-link" to={`/pdf?id=${pat._id}`} target="_blank">PDF</Link>
                             </div>
                         </div>
                         {!changeGoals ? 
@@ -316,7 +319,6 @@ class PatientScreen extends Component {
                     </div>
                     <div className="patient-view-header">
                         <label className="patient-view-title">histórico médico e barreiras</label>
-                        <label className="patient-view-title">Diário de sintomas</label>
                     </div>
                     <div className="patient-view-last">
                         <div className="history-box">
