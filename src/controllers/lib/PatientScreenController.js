@@ -13,6 +13,7 @@ export default class PatientScreenController extends MainController {
         this.handleTimeChange = this.handleTimeChange.bind(context);
         this.handleTypeChange = this.handleTypeChange.bind(context);
         this.handleSelect = this.handleSelect.bind(context);
+        this.generateCSVdata = this.generateCSVdata.bind(context);
         this.patientRepository = new PatientRepository();
     }
 
@@ -68,6 +69,23 @@ export default class PatientScreenController extends MainController {
         const values = { ...this.state.values };
         values.date = value;
         this.setState({ values: values });
+    }
+
+    generateCSVdata() {
+
+        const { pat, history, goals } = this.props.currentPatient;
+
+        const csvData = [
+            ["data", "nome", "cpf", "data de nascimento", "e-mail", "id fitbit", "telefone", "peso", "altura", "meta de passos", "meta de distancia", "passos", "distancia"]
+        ];
+
+        for (var i = 0; i < history.steps.length; i ++) {
+            csvData.push([
+                history.steps[i].dateTime, pat.full_name, pat.cpf, pat.birth_date, pat.email, pat.fitbit_id, pat.personal_phone,
+                pat.weight, pat.height, goals.stepsPerDay, goals.kmPerWeek, history.steps[i].value, history.distance[i].value
+            ]);
+        }
+        return csvData;
     }
 
 }

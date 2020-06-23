@@ -18,6 +18,7 @@ import SaveIcon from '@material-ui/icons/Save';
 import { setPatient, setPatients } from '../../actions/index';
 import { patientForm, barriers } from '../../assets/patientForm'
 import { Link } from "react-router-dom";
+import { CSVLink, CSVDownload } from "react-csv";
 
 class PatientScreen extends Component {
 
@@ -168,7 +169,7 @@ class PatientScreen extends Component {
     render() {
         
         const { goals, history, pat } = this.props.currentPatient;
-        const { toggleForm, handleChange, handleSubmit, handleTimeChange, handleTypeChange, handleSelect } = this.controller;
+        const { toggleForm, handleChange, handleSubmit, handleTimeChange, handleTypeChange, handleSelect, generateCSVdata } = this.controller;
         const { changeGoals, km, steps, resp, obs, other, graphic_time, graphic_view, date } = this.state.values;
         const { mActive, mDistance, mSteps, act, stp, dis } = this.getData();
         return(
@@ -201,6 +202,7 @@ class PatientScreen extends Component {
                                 <label className="topic-label weight-label">peso (kg)</label>
                                 <label className="topic-value">{pat.weight}</label>
                                 <Link className="pdf-link" to={`/pdf?id=${pat._id}`} target="_blank">PDF</Link>
+                                <CSVLink className="pdf-link" data={generateCSVdata()}>CSV</CSVLink>
                             </div>
                         </div>
                         {!changeGoals ? 
