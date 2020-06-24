@@ -9,11 +9,19 @@ Esse repositório consta do WebApp do projeto de monitoramento e tratamento de p
 O deploy do projeto em modo de desenvolvimento ja está disponível e pode ser acessado em: https://asthma-project-web.herokuapp.com/.
 Todos os deploys são feitos a partir da branch master.
 
-Caso deseje executar o projeto localmente, é necessário clonar o projeto e ter instalado em sua máquina o Nodejs, o NPM e a React CLI. Com esses softwares instalados:
+Caso deseje executar o projeto localmente, é necessário clonar o projeto e ter **instalado em sua máquina o Nodejs e o NPM** (são instalados em conjunto). Com esses softwares instalados:
 
 ```shell
+# Navegar para a pasta onde se encontra o respositório
 cd filePath/asthmaProjectWeb
+
+# Instalar a react-cli globalmente
+npm install -g react-cli
+
+# Instalar as dependências do projeto
 npm install
+
+# Executar o projeto
 npm run dev
 ```
 
